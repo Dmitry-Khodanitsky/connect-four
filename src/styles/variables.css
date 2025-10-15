@@ -1,0 +1,13 @@
+:root {
+  --color-background: rgb(110, 111, 255);  /* Цвет фона */
+  --color-board: #f0f0f0f4;        /* Цвет игровой доски */
+  --color-text: #333333;         /* Цвет шрифта */
+  
+  --color-player-1: #ff6b6b;     /* Цвет игрока 1 */
+  --color-player-2: #4ecdc4;     /* Цвет игрока 2 */
+
+  --shadow-external: 0px 14px 0px -3px var(--color-text);
+  --shadow-inner: 0px 15px 0px 0px var(--color-text) inset;
+
+  --border: 3px solid var(--color-text);
+}
