@@ -1,0 +1,23 @@
+.game_board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr); /* 6 строк */
+  grid-template-columns: repeat(7, 1fr); /* 7 колонок */
+  width: 40vw;
+  min-width: 300px;
+  aspect-ratio: 7 / 6;
+  background-color: var(--color-board);
+  border: var(--border);
+  border-radius: 5%;
+  box-shadow: var(--shadow-external);
+  padding: 20px;
+  gap: 8px;
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-background);
+  border: var(--border);
+  border-radius: 50%;
+  box-shadow: var(--shadow-inner);
+  cursor: pointer;
+}
