@@ -7,8 +7,8 @@
   --color-player-1: rgba(255, 107, 107, 1); /* Цвет игрока 1 */
   --color-player-2: rgba(78, 205, 196, 1); /* Цвет игрока 2 */
 
-  --shadow-external: 0px 14px 0px -3px var(--color-text);
-  --shadow-inner: 0px 15px 0px 0px var(--color-text) inset;
+  --shadow-external: 0px 2vh 0px -3px var(--color-text);
+  --shadow-inner: 0px 1.5vh 0px 0px var(--color-text) inset;
   --light-shadow-inner: 0px 5px 0px 0px var(--light-shadow-color) inset;
 
   --border: 3px solid var(--color-text);
