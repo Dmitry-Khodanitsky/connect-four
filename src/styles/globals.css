@@ -1,5 +1,13 @@
+@font-face {
+  font-family: 'Underdog';
+  src: url('../assets/fonts/Underdog-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+
 body {
   background-color: var(--color-background);
+  font-family: 'Underdog', sans-serif;
 }
 #root {
     align-items: center;
