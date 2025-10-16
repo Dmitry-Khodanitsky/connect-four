@@ -7,12 +7,16 @@ import { findLowestEmptyCell, makeMove } from '../../utils/gameLogic'
 function App() {
   const ROWS = 6
   const COLS = 7
+  const PLAYER1 = 'X'
+  const PLAYER2 = '0'
 
   const initialState = {
-    board: Array(ROWS).fill().map(() => Array(COLS).fill(null)),
-    currentPlayer: 'player_1',
+    board: Array(ROWS)
+      .fill()
+      .map(() => Array(COLS).fill(null)),
+    currentPlayer: PLAYER1,
     winner: null,
-    gameOver: false
+    gameStatus: 'pending', //waiting - игра не началась, win, draw
   }
 
   const [gameState, setGameState] = useState(initialState)
