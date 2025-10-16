@@ -1,18 +1,20 @@
 import './Board.css'
 
-const Board = ({ boardState, onClick }) => {
-    console.log(onClick)
+const Board = ({ gameState, onClick }) => {
   return (
     <div className="game_board">
-      {boardState.map((row, rowIndex) =>
+      {gameState.board.map((row, rowIndex) =>
         row.map((cell, colIndex) => (
           <div
             key={`${rowIndex}-${colIndex}`}
             className="cell"
-            onClick={() => onClick(rowIndex, colIndex)}
+            onClick={() => onClick(rowIndex, colIndex, gameState.board)}
           >
-            {/* {console.log(cell)} */}
-            {/* {cell && <div className={`disc ${cell}`} />} */}
+            {cell !== null && (
+              <div
+                className={`chip ${cell === 'X' ? 'player_1' : 'player_2'}`}
+              ></div>
+            )}
           </div>
         ))
       )}
