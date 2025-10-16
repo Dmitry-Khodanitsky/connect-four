@@ -25,7 +25,7 @@ function App() {
     console.log('Coordinates: ', rowIndex, colIndex)
     setGameState((prevState) => {
       const moveResult = makeMove(prevState, colIndex)
-  
+
       if (!moveResult) {
         // Колонка заполнена, ход невозможен
         return prevState
@@ -44,7 +44,8 @@ function App() {
 
   return (
     <main className="main_section">
-      <Board boardState={gameState.board} onClick={onCellClick}/>
+      <Board gameState={gameState} onClick={handleMove} />
+      <StatusPanel currentPlayer={gameState.currentPlayer} gameResult={gameState.winner}/>
     </main>
   )
 }
