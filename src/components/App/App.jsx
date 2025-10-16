@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Board from '../Board/Board'
 import StatusPanel from '../StatusPanel/StatusPanel'
+import { findLowestEmptyCell, makeMove } from '../../utils/gameLogic'
 
 function App() {
   const ROWS = 6
@@ -16,13 +17,25 @@ function App() {
 
   const [gameState, setGameState] = useState(initialState)
 
-  const onCellClick = (rowIndex, colIndex) => {
+  const handleMove = (rowIndex, colIndex, board) => {
     console.log('Coordinates: ', rowIndex, colIndex)
-    const result = findLowestEmptyCell(gameState.board, colIndex)
+    setGameState((prevState) => {
+      const moveResult = makeMove(prevState, colIndex)
   
-    if (result) {
-      console.log('Закрашена ячейка ', result)
-    }
+      if (!moveResult) {
+        // Колонка заполнена, ход невозможен
+        return prevState
+      }
+      console.log(prevState.board)
+
+      return {
+        ...prevState,
+        board: moveResult.board,
+        currentPlayer: prevState.currentPlayer === PLAYER1 ? PLAYER2 : PLAYER1,
+        winner: null, //winner,
+        gameStatus: 'pending' // winner ? 'win' : isDraw ? 'draw' : 'pending',
+      }
+    })
   }
 
   return (
