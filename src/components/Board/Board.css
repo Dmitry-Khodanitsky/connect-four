@@ -21,3 +21,20 @@
   box-shadow: var(--shadow-inner);
   cursor: pointer;
 }
+
+.chip {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: var(--light-shadow-inner);
+  
+}
+
+
+.player_1 {
+  background-color: var(--color-player-1);
+}
+
+.player_2 {
+  background-color: var(--color-player-2);
+}
