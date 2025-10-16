@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Board from '../Board/Board'
-import findLowestEmptyCell from '../../utils/gameLogic'
+import StatusPanel from '../StatusPanel/StatusPanel'
 
 function App() {
   const ROWS = 6
