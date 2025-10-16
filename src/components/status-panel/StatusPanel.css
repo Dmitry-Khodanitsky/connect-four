@@ -1,0 +1,10 @@
+.status_panel {
+  text-align: center;
+  width: 20vw;
+  min-width: 10rem;
+  border: var(--border);
+  border-radius: 1rem;
+  transition: 0.2s;
+  box-shadow: var(--shadow-external)
+}
+
