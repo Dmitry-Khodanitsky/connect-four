@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import Board from '../board/Board'
-import StatusPanel from '../statusPanel/StatusPanel'
+import Board from '../board' 
+import StatusPanel from '../status-panel' 
 import { findLowestEmptyCell, makeMove } from '../../utils/gameLogic'
 
 function App() {
