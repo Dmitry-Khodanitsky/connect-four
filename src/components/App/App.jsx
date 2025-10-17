@@ -27,24 +27,22 @@ function App() {
     player_2: 5,
   })
 
-  const handleMove = (rowIndex, colIndex, board) => {
-    console.log('Coordinates: ', rowIndex, colIndex)
+  const handleMove = (colIndex) => {
     setGameState((prevState) => {
       const moveResult = makeMove(prevState, colIndex)
-
       if (!moveResult) {
         // Колонка заполнена, ход невозможен
         return prevState
       }
-      console.log(prevState.board)
 
-      return {
+      const newGameState = {
         ...prevState,
         board: moveResult.board,
         currentPlayer: prevState.currentPlayer === PLAYER1 ? PLAYER2 : PLAYER1,
-        winner: null, //winner,
-        gameStatus: 'pending' // winner ? 'win' : isDraw ? 'draw' : 'pending',
+        winner: null, // тут должна быть функция определения победителя
       }
+
+      return newGameState
     })
   }
 
