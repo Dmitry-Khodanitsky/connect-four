@@ -8,7 +8,7 @@ const Board = ({ gameState, onClick }) => {
           <div
             key={`${rowIndex}-${colIndex}`}
             className="cell"
-            onClick={() => onClick(rowIndex, colIndex, gameState.board)}
+            onClick={() => onClick(colIndex)}
           >
             {cell !== null && (
               <div
