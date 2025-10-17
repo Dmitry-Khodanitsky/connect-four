@@ -20,6 +20,11 @@ function App() {
   }
 
   const [gameState, setGameState] = useState(initialState)
+  const [gameStatus, setGameStatus] = useState('pending') // pending, waiting - игра не началась, win, draw
+  const [gameScore, setGameScore] = useState({
+    player_1: 10,
+    player_2: 5,
+  })
 
   const handleMove = (rowIndex, colIndex, board) => {
     console.log('Coordinates: ', rowIndex, colIndex)
