@@ -1,0 +1,47 @@
+.score_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.score_box-player_1 {
+  justify-self: end;
+  grid-area: score1;
+}
+
+.score_box-player_2 {
+  justify-self: start;
+  grid-area: score2;
+}
+
+.score_info {
+  max-width: 5em;
+  background-color: var(--color-board);
+  text-align: center;
+  border: var(--border);
+  border-radius: 1rem;
+  transition: 0.2s;
+  box-shadow: var(--shadow-external);
+  font-size: 1.5rem;
+  color: var(--color-text);
+  padding: 0.5em 0.5em;
+}
+
+.player_avatar {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  background-color: var(--color-text);
+  position: relative;
+  top: 10px;
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+  .score_box-player_1,
+  .score_box-player_2 {
+    width: 90%;
+  }
+}
