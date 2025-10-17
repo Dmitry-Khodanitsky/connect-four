@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Board from '../board' 
 import StatusPanel from '../status-panel' 
+import ScoreBox from '../score-box'
 import { findLowestEmptyCell, makeMove } from '../../utils/gameLogic'
 
 function App() {
@@ -48,9 +49,17 @@ function App() {
   }
 
   return (
-    <main className="main_section">
+    <main className="game_field">
+      <div className="board-box">
+        <ScoreBox score={gameScore.player_1} player='player_1'/> 
       <Board gameState={gameState} onClick={handleMove} />
-      <StatusPanel currentPlayer={gameState.currentPlayer} gameResult={gameState.winner}/>
+        <ScoreBox score={gameScore.player_2} player='player_2'/>
+      </div>
+      <StatusPanel
+        currentPlayer={gameState.currentPlayer}
+        gameWinner={gameState.winner}
+        gameStatus={gameStatus}
+      />
     </main>
   )
 }
