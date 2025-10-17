@@ -10,9 +10,6 @@ body {
   font-family: 'Underdog', sans-serif;
 }
 #root {
-    align-items: center;
-    display: flex;
-    justify-content: center;
     min-height: 100vh;
     position: relative;
 }
