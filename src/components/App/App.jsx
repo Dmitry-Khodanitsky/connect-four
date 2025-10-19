@@ -3,7 +3,7 @@ import './App.css'
 import Board from '../board' 
 import StatusPanel from '../status-panel' 
 import ScoreBox from '../score-box'
-import { findLowestEmptyCell, makeMove } from '../../utils/gameLogic'
+import { makeMove } from '../../utils/gameLogic'
 
 function App() {
   const ROWS = 6
