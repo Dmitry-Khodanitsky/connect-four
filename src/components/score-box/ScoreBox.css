@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1em;
 }
 
 .score_box-player_1 {
@@ -25,7 +24,6 @@
   transition: 0.2s;
   box-shadow: var(--shadow-external);
   font-size: 1.5rem;
-  color: var(--color-text);
   padding: 0.5em 0.5em;
 }
 
