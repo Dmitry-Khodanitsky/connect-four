@@ -57,9 +57,11 @@ function App() {
   return (
     <main className="game_field">
       <GameFieldHeader onRestart={handleRestart} />
+      <section className="board-box">
+        <ScoreBox score={gameScore.player_1} player="player_1" />
       <Board gameState={gameState} onClick={handleMove} />
-        <ScoreBox score={gameScore.player_2} player='player_2'/>
-      </div>
+        <ScoreBox score={gameScore.player_2} player="player_2" />
+      </section>
       <StatusPanel
         currentPlayer={gameState.currentPlayer}
         gameWinner={gameState.winner}
