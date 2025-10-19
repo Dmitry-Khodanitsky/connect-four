@@ -1,5 +1,6 @@
 :root {
-  --color-background: rgba(110, 111, 255, 1); /* Цвет фона */
+  --color-primary: rgba(110, 111, 255, 1); /* Цвет фона, основной цвет */
+  --color-secondary: rgba(255, 203, 107, 1); /* Дополнительный цвет */
   --color-board: rgba(240, 240, 240, 1); /* Цвет игровой доски */
   --color-text: rgba(51, 51, 51, 1);
   --light-shadow-color: rgba(51, 51, 51, 0.5); /* Цвет мягкой тени */
@@ -7,7 +8,7 @@
   --color-player-1: rgba(255, 107, 107, 1); /* Цвет игрока 1 */
   --color-player-2: rgba(78, 205, 196, 1); /* Цвет игрока 2 */
 
-  --shadow-external: 0px 2vh 0px -3px var(--color-text);
+  --shadow-external: 0px 1.5vh 0px -3px var(--color-text);
   --shadow-inner: 0px 1.5vh 0px 0px var(--color-text) inset;
   --light-shadow-inner: 0px 5px 0px 0px var(--light-shadow-color) inset;
 
