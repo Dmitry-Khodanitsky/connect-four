@@ -3,6 +3,7 @@ import './App.css'
 import Board from '../board' 
 import StatusPanel from '../status-panel' 
 import ScoreBox from '../score-box'
+import GameFieldHeader from '../game-field-header'
 import { makeMove } from '../../utils/gameLogic'
 
 function App() {
