@@ -56,8 +56,7 @@ function App() {
 
   return (
     <main className="game_field">
-      <div className="board-box">
-        <ScoreBox score={gameScore.player_1} player='player_1'/> 
+      <GameFieldHeader onRestart={handleRestart} />
       <Board gameState={gameState} onClick={handleMove} />
         <ScoreBox score={gameScore.player_2} player='player_2'/>
       </div>
