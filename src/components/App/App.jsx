@@ -46,6 +46,14 @@ function App() {
     })
   }
 
+  const handleRestart = () => {
+    setGameState(initialState)
+    setGameScore({
+      player_1: 0,
+      player_2: 0,
+    })
+  }
+
   return (
     <main className="game_field">
       <div className="board-box">
