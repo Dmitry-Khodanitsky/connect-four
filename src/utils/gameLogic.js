@@ -23,4 +23,15 @@ const makeMove = (gameState, columnIndex) => {
   }
 }
 
-export { findLowestEmptyCell, makeMove }
+const checkDraw = (board) => {
+  for (let row of board) {
+    for (let column of row) {
+      if (column === null) {
+        console.log('Не все ячейки заняты')
+        return false
+      }
+    }
+  }
+  console.log('ничья')
+  return true
+}
