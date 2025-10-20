@@ -2,17 +2,17 @@ import './Board.css'
 
 const Board = ({ gameState, onClick }) => {
   return (
-    <div className="game_board">
+    <div className="game-board">
       {gameState.board.map((row, rowIndex) =>
-        row.map((cell, colIndex) => (
+        row.map((cell, columnIndex) => (
           <div
-            key={`${rowIndex}-${colIndex}`}
+            key={`${rowIndex}-${columnIndex}`}
             className="cell"
-            onClick={() => onClick(colIndex)}
+            onClick={() => onClick(columnIndex)}
           >
             {cell !== null && (
               <div
-                className={`chip ${cell === 'X' ? 'player_1' : 'player_2'}`}
+                className={`chip ${cell === 'X' ? 'player-1' : 'player-2'}`}
               ></div>
             )}
           </div>
