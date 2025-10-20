@@ -7,18 +7,19 @@ const findLowestEmptyRow = (board, column) => {
   return null
 }
 
-const makeMove = (gameState, column) => {
+const makeMove = (gameState, columnIndex) => {
   const { board, currentPlayer } = gameState
-  const emptyCell = findLowestEmptyCell(board, column)
-  if (!emptyCell) return null
+  const emptyRow = findLowestEmptyRow(board, columnIndex)
+  if (emptyRow === null) return null
 
   const newBoard = board.map((row) => [...row])
-  newBoard[emptyCell.row][column] = currentPlayer
+  newBoard[emptyRow][columnIndex] = currentPlayer
 
   return {
     board: newBoard,
-    row: emptyCell.row,
-    col: column,
+    row: emptyRow,
+    column: columnIndex,
+    player: currentPlayer,
   }
 }
 
