@@ -1,7 +1,7 @@
-const findLowestEmptyCell = (board, column) => {
+const findLowestEmptyRow = (board, column) => {
   for (let row = board.length - 1; row >= 0; row--) {
     if (board[row][column] === null) {
-      return { row, column }
+      return row
     }
   }
   return null
