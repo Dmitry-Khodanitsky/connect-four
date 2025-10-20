@@ -35,3 +35,4 @@ const checkDraw = (board) => {
   console.log('ничья')
   return true
 }
+export { findLowestEmptyRow, makeMove, checkDraw }
