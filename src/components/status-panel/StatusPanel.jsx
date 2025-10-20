@@ -1,7 +1,11 @@
 import './StatusPanel.css'
 
-const StatusPanel = ({ currentPlayer, gameWinner, gameStatus }) => {
-
+const StatusPanel = ({
+  currentPlayer,
+  gameWinner,
+  gameStatus,
+  onPlayAgain,
+}) => {
   const getStatusContent = () => {
     switch (gameStatus) {
       case 'pending':
@@ -36,11 +40,16 @@ const StatusPanel = ({ currentPlayer, gameWinner, gameStatus }) => {
     }
   }
 
-  const { text, className } = getStatusContent()
+  const { text, className, restartButton } = getStatusContent()
 
   return (
     <div className={`status_panel ${className}`}>
       <p>{text}</p>
+      {restartButton && (
+        <button className="play-again" onClick={onPlayAgain}>
+          Сыграть снова
+        </button>
+      )}
     </div>
   )
 }
