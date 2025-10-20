@@ -15,6 +15,7 @@ const StatusPanel = ({
         return {
           text: playerTurn,
           className: turnColorClass,
+          restartButton: false,
         }
 
       case 'win':
@@ -24,18 +25,19 @@ const StatusPanel = ({
         return {
           text: winnerText,
           className: winnerColorClass,
+          restartButton: true,
         }
 
       case 'draw':
         return {
           text: 'Ничья!',
-          className: 'status_draw',
+          restartButton: true,
         }
 
       default:
         return {
           text: 'Начните игру',
-          className: 'status_default',
+          restartButton: false,
         }
     }
   }
