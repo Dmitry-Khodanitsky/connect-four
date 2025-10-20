@@ -1,21 +1,21 @@
-.score_box {
+.score-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.score_box-player_1 {
+.score-box--player-1 {
   justify-self: end;
   grid-area: score1;
 }
 
-.score_box-player_2 {
+.score-box--player-2 {
   justify-self: start;
   grid-area: score2;
 }
 
-.score_info {
+.score-info {
   max-width: 5em;
   background-color: var(--color-board);
   text-align: center;
@@ -27,7 +27,7 @@
   padding: 0.5em 0.5em;
 }
 
-.player_avatar {
+.player-avatar {
   width: 3em;
   height: 3em;
   border-radius: 50%;

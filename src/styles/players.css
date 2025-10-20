@@ -1,7 +1,7 @@
-.player_1 {
+.player-1 {
   background-color: var(--color-player-1);
 }
 
-.player_2 {
+.player-2 {
   background-color: var(--color-player-2);
 }
