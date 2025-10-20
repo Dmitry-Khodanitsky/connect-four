@@ -11,7 +11,7 @@ const StatusPanel = ({
       case 'pending':
         const playerTurn =
           currentPlayer === 'X' ? 'Ход игрока 1' : 'Ход игрока 2'
-        const turnColorClass = currentPlayer === 'X' ? 'player_1' : 'player_2'
+        const turnColorClass = currentPlayer === 'X' ? 'player-1' : 'player-2'
         return {
           text: playerTurn,
           className: turnColorClass,
@@ -21,7 +21,7 @@ const StatusPanel = ({
       case 'win':
         const winnerText =
           gameWinner === 'X' ? 'Победил игрок 1!' : 'Победил игрок 2!'
-        const winnerColorClass = gameWinner === 'X' ? 'player_1' : 'player_2'
+        const winnerColorClass = gameWinner === 'X' ? 'player-1' : 'player-2'
         return {
           text: winnerText,
           className: winnerColorClass,
@@ -31,12 +31,14 @@ const StatusPanel = ({
       case 'draw':
         return {
           text: 'Ничья!',
+          className: 'status-draw',
           restartButton: true,
         }
 
       default:
         return {
           text: 'Начните игру',
+          className: 'status-default',
           restartButton: false,
         }
     }
@@ -45,7 +47,7 @@ const StatusPanel = ({
   const { text, className, restartButton } = getStatusContent()
 
   return (
-    <div className={`status_panel ${className}`}>
+    <div className={`status-panel ${className}`}>
       <p>{text}</p>
       {restartButton && (
         <button className="play-again" onClick={onPlayAgain}>
