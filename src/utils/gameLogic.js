@@ -16,7 +16,7 @@ const makeMove = (gameState, gameStatus, columnIndex) => {
   if (emptyRow === null) return null
 
   const newBoard = board.map((row) => [...row])
-  newBoard[emptyRow][columnIndex] = currentPlayer
+  newBoard[emptyRow][columnIndex] = currentPlayer.id
 
   return {
     board: newBoard,
