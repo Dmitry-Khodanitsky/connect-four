@@ -47,7 +47,10 @@ export const useGame = () => {
       const newGameState = {
         ...prevState,
         board: moveResult.board,
-        currentPlayer: prevState.currentPlayer === PLAYER1 ? PLAYER2 : PLAYER1,
+        currentPlayer:
+          prevState.currentPlayer === playersConfig.player1
+            ? playersConfig.player2
+            : playersConfig.player1,
         winner: winner, 
         history: [
           ...prevState.history,
