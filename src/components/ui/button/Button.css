@@ -1,0 +1,44 @@
+.button {
+  cursor: pointer;
+  border: var(--border);
+  border-radius: 2em;
+  padding: 10px 10px;
+  text-align: center;
+  box-shadow: var(--shadow-external);
+  transition: background 0.3s;
+}
+
+.button-menu {
+  background-color: var(--color-board);
+  width: 100%;
+  font-size: 2em;
+  padding: 1em 1em;
+}
+
+.button-menu:hover {
+  background: var(--color-secondary);
+}
+
+.button-board-menu {
+  width: 6em;
+  background: var(--color-secondary);
+  font-size: 1.2em;
+}
+
+.button-board-menu:hover {
+  background: var(--color-board);
+}
+
+.button-status-panel {
+  background-color: var(--color-primary);
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.5em;
+  color: var(--color-board);
+  box-shadow: none;
+}
+
+.button-status-panel:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+}
