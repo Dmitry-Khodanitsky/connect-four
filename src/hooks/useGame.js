@@ -24,26 +24,14 @@ export const useGame = () => {
   })
 
   const initialState = {
-    board: Array(ROWS)
-      .fill()
-      .map(() => Array(COLS).fill(null)),
-    currentPlayer: PLAYER1,
-    winner: null, // player1, player2
+    board: new Array(6).fill().map(() => new Array(7).fill(null)),
+    currentPlayer: playersConfig.player1,
+    winner: null,
     history: [],
   }
 
-  return initialState
-}
-
-export const useGame = () => {
-  const initialState = createInitialState()
-
   const [gameState, setGameState] = useState(initialState)
-  const [gameStatus, setGameStatus] = useState('pending') // pending, waiting - игра не началась, win, draw
-  const [gameScore, setGameScore] = useState({
-    player_1: 10,
-    player_2: 5,
-  })
+  const [gameStatus, setGameStatus] = useState('waiting') // pending, waiting - игра не началась, win, draw
 
   const handleMove = (columnIndex) => {
     setGameState((prevState) => {
