@@ -82,7 +82,7 @@ export const useGame = () => {
     })
   }
 
-  const handlePlayAgain = () => {
+  const handlePlay = () => {
     setGameState(initialState)
     setGameStatus('pending')
   }
