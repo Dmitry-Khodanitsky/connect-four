@@ -90,9 +90,9 @@ export const useGame = () => {
   return {
     gameState,
     gameStatus,
-    gameScore,
+    playersConfig,
     handleMove,
     handleRestart,
-    handlePlayAgain,
+    handlePlay,
   }
 }
