@@ -1,0 +1,18 @@
+.board-menu {
+  margin-bottom: 1em;
+}
+.board-menu-content {
+  width: 30vw;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  justify-content: space-between;
+}
+
+.board-menu-content h1 {
+  line-height: 0;
+  min-width: 4em;
+  text-align: center;
+}
+
