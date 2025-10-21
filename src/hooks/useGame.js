@@ -35,7 +35,7 @@ export const useGame = () => {
 
   const handleMove = (columnIndex) => {
     setGameState((prevState) => {
-      const moveResult = makeMove(prevState, columnIndex)
+      const moveResult = makeMove(prevState, gameStatus, columnIndex)
       if (!moveResult) {
         // Колонка заполнена, ход невозможен
         return prevState
