@@ -1,6 +1,10 @@
 import './Board.css'
 
-const Board = ({ gameState, onClick }) => {
+const Board = ({ gameState, playerConfig, onClick }) => {
+  const className = {
+    player1: playerConfig.player1.className,
+    player2: playerConfig.player2.className,
+  }
   return (
     <div className="game-board">
       {gameState.board.map((row, rowIndex) =>
@@ -12,7 +16,9 @@ const Board = ({ gameState, onClick }) => {
           >
             {cell !== null && (
               <div
-                className={`chip ${cell === 'X' ? 'player-1' : 'player-2'}`}
+                className={`chip ${
+                  cell === 'X' ? className.player1 : className.player2
+                }`}
               ></div>
             )}
           </div>
