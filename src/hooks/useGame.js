@@ -1,13 +1,28 @@
 import { useState } from 'react'
 import { makeMove, checkDraw } from '../utils/gameLogic'
 
+export const useGame = () => {
+  const [playersConfig, setPlayersConfig] = useState({
+    player1: {
+      id: 'X',
+      name: 'Игрок 1',
+      avatar: '👨', // или URL к изображению
+      moveText: 'Ход игрока 1',
+      winText: 'Победил игрок 1',
+      className: 'player-1',
+      score: 0,
+    },
+    player2: {
+      id: 'O',
+      name: 'Игрок 2',
+      avatar: '👩',
+      moveText: 'Ход игрока 2',
+      winText: 'Победил игрок 2',
+      className: 'player-2',
+      score: 0,
+    },
+  })
 
-const ROWS = 6
-const COLS = 7
-const PLAYER1 = 'X'
-const PLAYER2 = '0'
-
-const createInitialState = () => {
   const initialState = {
     board: Array(ROWS)
       .fill()
