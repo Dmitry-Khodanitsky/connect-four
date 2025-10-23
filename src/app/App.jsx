@@ -12,7 +12,7 @@ function App() {
   const {
     gameState,
     gameStatus,
-    playersConfig,
+    gamePlayers,
     handleMove,
     handleRestart,
     handlePlay,
@@ -30,19 +30,18 @@ function App() {
     <main className="game-field">
       <BoardMenu onRestart={handleRestart} />
       <section className="board-box">
-        <ScoreBox playerConfig={playersConfig.player1} />
+        <ScoreBox player={gamePlayers.player1} />
         <Board
           gameState={gameState}
           onClick={handleMove}
-          playerConfig={playersConfig}
+          players={gamePlayers}
         />
-        <ScoreBox playerConfig={playersConfig.player2} />
+        <ScoreBox player={gamePlayers.player2} />
       </section>
       <StatusPanel
         currentPlayer={gameState.currentPlayer}
         gameWinner={gameState.winner}
         gameStatus={gameStatus}
-        playerConfig={playersConfig}
         onPlay={handlePlay}
       />
     </main>
