@@ -1,0 +1,5 @@
+export { default as Board } from './board'
+export { default as BoardMenu } from './board-menu'
+export { default as ScoreBox } from './score-box'
+export { default as StartMenu } from './start-menu'
+export { default as StatusPanel } from './status-panel'
