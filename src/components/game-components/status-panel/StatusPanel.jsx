@@ -39,7 +39,7 @@ const StatusPanel = ({ currentPlayer, gameWinner, gameStatus, onPlay }) => {
   return (
     <div className={`status-panel ${className}`}>
       <p>{text}</p>
-      {startButton && <Button className="status-panel" onClick={onPlay}>Сыграть еще</Button>}
+      {startButton && <Button type="status-panel" onClick={onPlay}>Сыграть еще</Button>}
     </div>
   )
 }
