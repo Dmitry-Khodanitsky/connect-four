@@ -1,9 +1,9 @@
 import './Board.css'
 
-const Board = ({ gameState, playerConfig, onClick }) => {
+const Board = ({ gameState, players, onClick }) => {
   const className = {
-    player1: playerConfig.player1.className,
-    player2: playerConfig.player2.className,
+    player1: players.player1.className,
+    player2: players.player2.className,
   }
   return (
     <div className="game-board">
