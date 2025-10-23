@@ -1,1 +1,1 @@
-export { default } from './scoreBox'
+export { default } from './ScoreBox'
