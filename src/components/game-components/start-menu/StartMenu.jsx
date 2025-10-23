@@ -15,16 +15,24 @@ const StartMenu = ({ onPlay }) => {
   }
 
   return (
-    <div className="start-menu">
-      <h1>4 в ряд </h1>
-      <Button type={'menu'} onClick={onPlay}>
-        Начать игру
-      </Button>
-      <Button type={'menu'} onClick={handleOpenModal}>
-        Правила
-      </Button>
+    <>
+      <ul className="start-menu">
+        <li>
+          <h1>4 в ряд </h1>
+        </li>
+        <li>
+          <Button type={'menu'} onClick={onPlay}>
+            Начать игру
+          </Button>
+        </li>
+        <li>
+          <Button type={'menu'} onClick={handleOpenModal}>
+            Правила
+          </Button>
+        </li>
+      </ul>
       {isModalVisible && <Modal onClose={handleCloseModal}> Rules </Modal>}
-    </div>
+    </>
   )
 }
 
