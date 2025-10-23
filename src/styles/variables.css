@@ -13,4 +13,5 @@
   --light-shadow-inner: 0px 5px 0px 0px var(--light-shadow-color) inset;
 
   --border: 3px solid var(--color-text);
+  --big-border-radius: 3rem;
 }
