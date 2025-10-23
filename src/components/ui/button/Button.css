@@ -5,7 +5,7 @@
   padding: 10px 10px;
   text-align: center;
   box-shadow: var(--shadow-external);
-  transition: background 0.3s;
+  transition: all 0.3s;
 }
 
 .button-menu {
@@ -55,4 +55,12 @@
 
 .button-close-modal:hover {
   background-color: var(--color-primary);
+}
+
+.button:active {
+  transform: translateY(2px); 
+}
+
+.button:focus {
+  outline:  solid var(--color-board);
 }
