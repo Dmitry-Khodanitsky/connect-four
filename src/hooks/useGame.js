@@ -51,7 +51,7 @@ export const useGame = () => {
           prevState.currentPlayer === playersConfig.player1
             ? playersConfig.player2
             : playersConfig.player1,
-        winner: winner, 
+        winner: winner,
         history: [
           ...prevState.history,
           {
@@ -76,10 +76,7 @@ export const useGame = () => {
   const handleRestart = () => {
     setGameState(initialState)
     setGameStatus('pending')
-    setGameScore({
-      player_1: 0,
-      player_2: 0,
-    })
+    //setPlayersConfig() //тут увеличить количество очков
   }
 
   const handlePlay = () => {
