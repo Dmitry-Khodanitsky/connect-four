@@ -7,7 +7,7 @@
   aspect-ratio: 7 / 6;
   background-color: var(--color-board);
   border: var(--border);
-  border-radius: 3rem;
+  border-radius: var(--big-border-radius);
   box-shadow: var(--shadow-external);
   padding: 1rem;
   gap: 0.5rem;
