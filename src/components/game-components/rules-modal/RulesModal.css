@@ -1,0 +1,51 @@
+.modal {
+  width: clamp(220px, 60%, 400px);
+  padding: 2.5em 2em;
+  background-color: var(--color-board);
+  position: absolute;
+  margin: 1em;
+  border-radius: var(--big-border-radius);
+  border: var(--border);
+  box-shadow: var(--shadow-external);
+}
+
+.modal h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.modal-title {
+  font-size: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.modal-body h3 {
+  font-size: 1.5em;
+  color: var(--color-primary);
+  margin-bottom: 0.5em;
+
+}
+
+.modal-body {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+.modal-body ol {
+  list-style: decimal;
+  padding-left: 1em;
+}
+
+.modal-footer {
+    position: absolute;
+    left: calc(50% - 40px);
+    bottom: -8%;
+}
+
+@media (max-width: 425px) {
+  .modal {
+    font-size: 0.8em;
+  }
+}
