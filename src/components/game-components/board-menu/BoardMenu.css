@@ -2,8 +2,8 @@
   margin-bottom: 1em;
 }
 .board-menu-content {
-  width: 30vw;
-  min-width: 300px;
+  width: 100%;
+  min-width: 320px;
   display: flex;
   align-items: center;
   justify-self: center;
