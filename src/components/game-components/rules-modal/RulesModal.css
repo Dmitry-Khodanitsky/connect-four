@@ -1,12 +1,28 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: clamp(220px, 60%, 400px);
   padding: 2.5em 2em;
   background-color: var(--color-board);
-  position: absolute;
-  margin: 1em;
   border-radius: var(--big-border-radius);
   border: var(--border);
   box-shadow: var(--shadow-external);
+  z-index: 1;
 }
 
 .modal h1,
@@ -16,7 +32,7 @@ h3 {
 }
 
 .modal-title {
-  font-size: 1em;
+  font-size: 1.5em;
   margin-bottom: 1em;
   text-align: center;
 }
@@ -25,7 +41,6 @@ h3 {
   font-size: 1.5em;
   color: var(--color-primary);
   margin-bottom: 0.5em;
-
 }
 
 .modal-body {
@@ -39,9 +54,9 @@ h3 {
 }
 
 .modal-footer {
-    position: absolute;
-    left: calc(50% - 40px);
-    bottom: -8%;
+  position: absolute;
+  left: calc(50% - 40px);
+  bottom: -8%;
 }
 
 @media (max-width: 425px) {
