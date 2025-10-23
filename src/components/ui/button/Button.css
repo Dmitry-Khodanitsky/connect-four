@@ -20,7 +20,7 @@
 }
 
 .button-board-menu {
-  width: 6em;
+  min-width: 6em;
   background: var(--color-secondary);
   font-size: 1.2em;
 }
