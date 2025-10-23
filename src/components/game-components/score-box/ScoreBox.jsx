@@ -1,7 +1,7 @@
 import './ScoreBox.css'
 
-const ScoreBox = ({ playerConfig }) => {
-  const { className, name, score } = playerConfig
+const ScoreBox = ({ player }) => {
+  const { className, name, score } = player
   return (
     <div className={`score-box score-box--${className}`}>
       <div className="player-avatar"></div>
