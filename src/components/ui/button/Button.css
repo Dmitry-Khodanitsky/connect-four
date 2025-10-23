@@ -10,7 +10,7 @@
 
 .button-menu {
   background-color: var(--color-board);
-  width: 100%;
+  min-width: 9em;
   font-size: 2em;
   padding: 1em 1em;
 }
