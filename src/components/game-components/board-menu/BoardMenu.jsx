@@ -11,7 +11,7 @@ const GameFieldHeader = ({ onRestart }) => {
         <h1>4 в ряд </h1>
         <Button
           onClick={onRestart}
-          className="board-menu board-menu--restart"
+          type="board-menu board-menu--restart"
         >
           Рестарт
         </Button>
