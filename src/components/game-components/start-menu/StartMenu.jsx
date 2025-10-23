@@ -1,18 +1,11 @@
 import { useState } from 'react'
 import './StartMenu.css'
+import { useModal } from '../../../hooks'
 import Button from '../../ui/button'
 import Modal from '../rules-modal'
 
 const StartMenu = ({ onPlay }) => {
-  const [isModalVisible, setIsModalVisible] = useState(false)
-
-  const handleOpenModal = () => {
-    setIsModalVisible(true)
-  }
-
-  const handleCloseModal = () => {
-    setIsModalVisible(false)
-  }
+  const { isModalVisible, openModal, closeModal } = useModal()
 
   return (
     <>
@@ -26,12 +19,12 @@ const StartMenu = ({ onPlay }) => {
           </Button>
         </li>
         <li>
-          <Button type={'menu'} onClick={handleOpenModal}>
+          <Button type={'menu'} onClick={openModal}>
             Правила
           </Button>
         </li>
       </ul>
-      {isModalVisible && <Modal onClose={handleCloseModal}> Rules </Modal>}
+      {isModalVisible && <Modal onClose={closeModal}> Rules </Modal>}
     </>
   )
 }
