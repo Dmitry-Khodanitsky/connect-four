@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { makeMove, checkDraw } from '../utils/gameLogic'
 
-export const useGame = () => {
-  const [playersConfig, setPlayersConfig] = useState({
+const useGame = () => {
+  const [gamePlayers, setGamePlayers] = useState({
     player1: {
       id: 'X',
       name: 'Игрок 1',
@@ -25,7 +25,7 @@ export const useGame = () => {
 
   const initialState = {
     board: new Array(6).fill().map(() => new Array(7).fill(null)),
-    currentPlayer: playersConfig.player1,
+    currentPlayer: gamePlayers.player1,
     winner: null,
     history: [],
   }
@@ -48,9 +48,9 @@ export const useGame = () => {
         ...prevState,
         board: moveResult.board,
         currentPlayer:
-          prevState.currentPlayer === playersConfig.player1
-            ? playersConfig.player2
-            : playersConfig.player1,
+          prevState.currentPlayer === gamePlayers.player1
+            ? gamePlayers.player2
+            : gamePlayers.player1,
         winner: winner,
         history: [
           ...prevState.history,
@@ -76,7 +76,7 @@ export const useGame = () => {
   const handleRestart = () => {
     setGameState(initialState)
     setGameStatus('pending')
-    //setPlayersConfig() //тут увеличить количество очков
+    //setGamePlayers() //тут увеличить количество очков
   }
 
   const handlePlay = () => {
@@ -87,9 +87,11 @@ export const useGame = () => {
   return {
     gameState,
     gameStatus,
-    playersConfig,
+    gamePlayers,
     handleMove,
     handleRestart,
     handlePlay,
   }
 }
+
+export default useGame
