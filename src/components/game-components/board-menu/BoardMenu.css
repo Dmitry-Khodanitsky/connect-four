@@ -1,14 +1,17 @@
 .board-menu {
   margin-bottom: 1em;
-  width: 50%;
-}
-.board-menu-content {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  min-width: 320px;
+}
+
+.board-menu-content {
   display: flex;
   align-items: center;
-  justify-self: center;
   justify-content: space-between;
+  width: 100%;
+  max-width: 450px;
+  padding: 0 1rem;
 }
 
 .board-menu-content h1 {
@@ -17,3 +20,8 @@
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .board-menu {
+    font-size: 0.7em;
+  }
+}
