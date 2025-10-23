@@ -1,9 +1,9 @@
 import './Button.css'
 
-const Button = ({ children, onClick, className }) => {
+const Button = ({ children, onClick, type }) => {
   return (
     <button
-      className={`button button-${className}`}
+      className={`button button-${type}`}
       onClick={onClick}
       aria-label={children}
     >
