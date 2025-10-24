@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { makeMove, checkDraw, checkWin } from '../utils/gameLogic'
+import { makeMove, checkDraw, checkWin } from '../game-logic/gameLogic'
 
 const useGame = () => {
   const [gamePlayers, setGamePlayers] = useState({
@@ -10,7 +10,6 @@ const useGame = () => {
       moveText: 'Ход игрока 1',
       winText: 'Победил игрок 1',
       className: 'player-1',
-      score: 0,
     },
     player2: {
       id: 'O',
@@ -19,7 +18,6 @@ const useGame = () => {
       moveText: 'Ход игрока 2',
       winText: 'Победил игрок 2',
       className: 'player-2',
-      score: 0,
     },
   })
 
@@ -92,7 +90,7 @@ const useGame = () => {
   const handleRestart = () => {
     setGameState(initialState)
     setGameStatus('pending')
-    //setGamePlayers() //тут увеличить количество очков
+    setScore(initialScore)
   }
 
   const handlePlay = () => {
@@ -104,6 +102,7 @@ const useGame = () => {
     gameState,
     gameStatus,
     gamePlayers,
+    score,
     handleMove,
     handleRestart,
     handlePlay,
