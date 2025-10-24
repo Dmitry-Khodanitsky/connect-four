@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { makeMove, checkDraw } from '../utils/gameLogic'
+import { makeMove, checkDraw, checkWin } from '../utils/gameLogic'
 
 const useGame = () => {
   const [gamePlayers, setGamePlayers] = useState({
@@ -41,7 +41,7 @@ const useGame = () => {
         return prevState
       }
 
-      const winner = null // тут должна быть функция определения победителя
+      const winner = checkWin(lastMove, moveResult.board)
       const isDraw = !winner && checkDraw(moveResult.board)
 
       const newGameState = {
