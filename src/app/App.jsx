@@ -13,6 +13,7 @@ function App() {
     gameState,
     gameStatus,
     gamePlayers,
+    score,
     handleMove,
     handleRestart,
     handlePlay,
@@ -30,13 +31,13 @@ function App() {
     <main className="game-field">
       <BoardMenu onRestart={handleRestart} />
       <section className="board-box">
-        <ScoreBox player={gamePlayers.player1} />
+        <ScoreBox player={gamePlayers.player1} score={score}/>
         <Board
           gameState={gameState}
           onClick={handleMove}
           players={gamePlayers}
         />
-        <ScoreBox player={gamePlayers.player2} />
+        <ScoreBox player={gamePlayers.player2} score={score} />
       </section>
       <StatusPanel
         currentPlayer={gameState.currentPlayer}
