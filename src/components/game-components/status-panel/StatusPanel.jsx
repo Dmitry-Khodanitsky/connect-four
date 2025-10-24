@@ -1,37 +1,24 @@
 import './StatusPanel.css'
 import Button from '../../ui/button'
+import Lottie from 'lottie-react'
+import animationData from '../../../assets/lootie/congratulations.json'
+import getStatusContent from '../../../helpers'
 
 const StatusPanel = ({ currentPlayer, gameWinner, gameStatus, onPlay }) => {
-  const getStatusContent = () => {
-    switch (gameStatus) {
-      case 'pending':
-        return {
-          text: currentPlayer.moveText,
-          className: currentPlayer.className,
-          startButton: false,
-        }
-
-      case 'win':
-        return {
-          text: gameWinner.winText,
-          className: gameWinner.className,
-          startButton: true,
-        }
-
-      case 'draw':
-        return {
-          text: 'Ничья!',
-          className: 'status-draw',
-          startButton: true,
-        }
-
-      default:
-        return {
-          text: 'Начать игру',
-          className: 'status-default',
-          startButton: true,
-        }
-    }
+  
+  const ConfettiAnimation = () => {
+    return (
+      <Lottie
+        animationData={animationData}
+        loop={true}
+        autoplay={true}
+        style={{
+          height: '70vh',
+          width: '70vw',
+          position: 'absolute',
+        }}
+      />
+    )
   }
 
   const { text, className, startButton, showWinAnimation } = getStatusContent(gameStatus, currentPlayer, gameWinner)
@@ -39,7 +26,12 @@ const StatusPanel = ({ currentPlayer, gameWinner, gameStatus, onPlay }) => {
   return (
     <div className={`status-panel ${className}`}>
       <p>{text}</p>
-      {startButton && <Button type="status-panel" onClick={onPlay}>Сыграть еще</Button>}
+      {startButton && (
+        <Button type="status-panel" onClick={onPlay}>
+          Сыграть еще
+        </Button>
+      )}
+      {showWinAnimation && <ConfettiAnimation />}
     </div>
   )
 }
