@@ -41,6 +41,12 @@ const useGame = () => {
         return prevState
       }
 
+      const lastMove = {
+        row: moveResult.row,
+        column: moveResult.column,
+        player: moveResult.player,
+      }
+
       const winner = checkWin(lastMove, moveResult.board)
       const isDraw = !winner && checkDraw(moveResult.board)
 
