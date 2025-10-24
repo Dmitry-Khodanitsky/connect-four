@@ -75,6 +75,12 @@ const useGame = () => {
 
       if (winner) {
         setGameStatus('win')
+        setScore((prevScore) => {
+          return {
+            ...prevScore,
+            [winner.id]: prevScore[winner.id] + 1,
+          }
+        })
       } else if (isDraw) {
         setGameStatus('draw')
       }
