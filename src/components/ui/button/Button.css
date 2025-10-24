@@ -36,6 +36,7 @@
   font-size: 0.5em;
   color: var(--color-board);
   box-shadow: none;
+  z-index: 1;
 }
 
 .button-status-panel:hover {
