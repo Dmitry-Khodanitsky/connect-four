@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './BoardMenu.css'
 import Button from '../../ui/button'
 import Modal from '../rules-modal'

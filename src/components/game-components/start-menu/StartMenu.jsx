@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './StartMenu.css'
 import { useModal } from '../../../hooks'
 import Button from '../../ui/button'
