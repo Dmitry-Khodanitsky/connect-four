@@ -29,7 +29,11 @@ const useGame = () => {
     winner: null,
     history: [],
   }
-
+  const initialScore = {
+    X: 0,
+    O: 0,
+  }
+  const [score, setScore] = useState(initialScore)
   const [gameState, setGameState] = useState(initialState)
   const [gameStatus, setGameStatus] = useState('waiting') // pending, waiting - игра не началась, win, draw
 
