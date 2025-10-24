@@ -1,14 +1,11 @@
-import './StatusPanel.css'
-import Button from '../../ui/button'
-
-const StatusPanel = ({ currentPlayer, gameWinner, gameStatus, onPlay }) => {
-  const getStatusContent = () => {
+ const getStatusContent = (gameStatus, currentPlayer, gameWinner) => {
     switch (gameStatus) {
       case 'pending':
         return {
           text: currentPlayer.moveText,
           className: currentPlayer.className,
           startButton: false,
+          showWinAnimation: false,
         }
 
       case 'win':
@@ -16,6 +13,7 @@ const StatusPanel = ({ currentPlayer, gameWinner, gameStatus, onPlay }) => {
           text: gameWinner.winText,
           className: gameWinner.className,
           startButton: true,
+          showWinAnimation: true,
         }
 
       case 'draw':
@@ -23,6 +21,7 @@ const StatusPanel = ({ currentPlayer, gameWinner, gameStatus, onPlay }) => {
           text: 'Ничья!',
           className: 'status-draw',
           startButton: true,
+          showWinAnimation: false,
         }
 
       default:
@@ -30,18 +29,9 @@ const StatusPanel = ({ currentPlayer, gameWinner, gameStatus, onPlay }) => {
           text: 'Начать игру',
           className: 'status-default',
           startButton: true,
+          showWinAnimation: false,
         }
     }
   }
 
-  const { text, className, startButton, showWinAnimation } = getStatusContent(gameStatus, currentPlayer, gameWinner)
-
-  return (
-    <div className={`status-panel ${className}`}>
-      <p>{text}</p>
-      {startButton && <Button type="status-panel" onClick={onPlay}>Сыграть еще</Button>}
-    </div>
-  )
-}
-
-export default StatusPanel
+  export default getStatusContent
