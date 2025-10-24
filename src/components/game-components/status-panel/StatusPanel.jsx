@@ -14,7 +14,7 @@ const StatusPanel = ({ currentPlayer, gameWinner, gameStatus, onPlay }) => {
         autoplay={true}
         style={{
           height: '70vh',
-          width: '70vw',
+          width: '100vw',
           position: 'absolute',
         }}
       />
