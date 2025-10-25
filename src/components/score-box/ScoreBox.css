@@ -38,6 +38,10 @@
 
 /* Мобильная версия */
 @media (max-width: 768px) {
+  .score-box {
+    width: 100%;
+  }
+
   .score_box-player_1,
   .score_box-player_2 {
     width: 90%;

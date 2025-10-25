@@ -6,8 +6,8 @@
   min-height: 100vh;
   padding: 0;
 }
-.start-menu
- {
+
+.start-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,4 +30,11 @@
   text-align: center;
   margin: 0;
   margin-bottom: 1rem;
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+  .start-menu h1 {
+    font-size: 2em;
+  }
 }

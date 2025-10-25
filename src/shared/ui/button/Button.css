@@ -6,6 +6,11 @@
   text-align: center;
   box-shadow: var(--shadow-external);
   transition: all 0.3s;
+ 
+  -webkit-tap-highlight-color: transparent;
+
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .button-menu {

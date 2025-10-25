@@ -27,4 +27,8 @@
   .board-menu {
     font-size: 0.7em;
   }
+
+  .board-menu-content {
+    padding: 0 0.5rem;
+  }
 }

@@ -23,6 +23,8 @@
   border: var(--border);
   box-shadow: var(--shadow-external);
   z-index: 1;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 .modal h1,
 h2,
@@ -33,5 +35,7 @@ h3 {
 @media (max-width: 425px) {
   .modal {
     font-size: 0.8em;
+    padding: 2em 1.5em;
+    width: 90%;
   }
 }

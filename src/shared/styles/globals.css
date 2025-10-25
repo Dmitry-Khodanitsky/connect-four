@@ -8,13 +8,29 @@
   src: url('@/assets/fonts/Tochka-Script.woff2') format('woff2');
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--color-primary);
   font-family: 'Underdog', sans-serif;
   color: var(--color-text);
   overflow: hidden;
+ 
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 #root {
   min-height: 100vh;
   position: relative;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  -webkit-overflow-scrolling: touch;
 }
