@@ -1,4 +1,4 @@
-const GAME_RULES = {
+export const GAME_RULES = {
   title: 'Правила игры',
   description: `
     4 В РЯД - игра для двух игроков, где цель 
@@ -13,4 +13,38 @@ const GAME_RULES = {
   ],
 }
 
-export default GAME_RULES
+export const GAME_PLAYERS = {
+  player1: {
+    id: 'X',
+    name: 'Игрок 1',
+    avatar: '👨',
+    moveText: 'Ход игрока 1',
+    winText: 'Победил игрок 1',
+    className: 'player-1',
+  },
+  player2: {
+    id: 'O',
+    name: 'Игрок 2',
+    avatar: '👩',
+    moveText: 'Ход игрока 2',
+    winText: 'Победил игрок 2',
+    className: 'player-2',
+  },
+}
+
+export const INITIAL_BOARD = new Array(6)
+  .fill()
+  .map(() => new Array(7).fill(null))
+
+export const INITIAL_SCORE = {
+  X: 0,
+  O: 0,
+}
+
+export const getInitialState = () => ({
+  board: INITIAL_BOARD,
+  currentPlayer: GAME_PLAYERS.player1,
+  winner: null,
+  winningCells: [],
+  history: [],
+})
