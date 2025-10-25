@@ -1,4 +1,13 @@
-.start-menu {
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  min-height: 100vh;
+  padding: 0;
+}
+.start-menu
+ {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,5 +31,3 @@
   margin: 0;
   margin-bottom: 1rem;
 }
-
-
