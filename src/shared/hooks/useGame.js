@@ -28,8 +28,7 @@ const useGame = () => {
         player: moveResult.player,
       }
 
-      const winner = checkWin(lastMove, moveResult.board)
-      const isDraw = !winner && checkDraw(moveResult.board)
+      const { winner, winningCells } = checkWin(lastMove, moveResult.board)
 
       const newGameState = {
         ...prevState,
