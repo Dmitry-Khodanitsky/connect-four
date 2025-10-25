@@ -2,7 +2,7 @@
   display: grid;
   grid-template-rows: repeat(6, 1fr); /* 6 строк */
   grid-template-columns: repeat(7, 1fr); /* 7 колонок */
-  width: 40vw;
+  width: 30vw;
   min-width: 300px;
   aspect-ratio: 7 / 6;
   background-color: var(--color-board);
@@ -31,6 +31,8 @@
   height: 100%;
   border-radius: 50%;
   box-shadow: var(--light-shadow-inner);
-  
 }
 
+.chip-winning {
+  background-color: red;
+}
