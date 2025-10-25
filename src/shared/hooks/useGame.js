@@ -1,38 +1,15 @@
 import { useState } from 'react'
 import { makeMove, checkDraw, checkWin } from '@/game-logic/gameLogic'
+import {
+  getInitialState,
+  GAME_PLAYERS,
+  INITIAL_SCORE,
+} from '../constants/gameConstants'
 
 const useGame = () => {
-  const [gamePlayers, setGamePlayers] = useState({
-    player1: {
-      id: 'X',
-      name: 'Игрок 1',
-      avatar: '👨', // или URL к изображению
-      moveText: 'Ход игрока 1',
-      winText: 'Победил игрок 1',
-      className: 'player-1',
-    },
-    player2: {
-      id: 'O',
-      name: 'Игрок 2',
-      avatar: '👩',
-      moveText: 'Ход игрока 2',
-      winText: 'Победил игрок 2',
-      className: 'player-2',
-    },
-  })
-
-  const initialState = {
-    board: new Array(6).fill().map(() => new Array(7).fill(null)),
-    currentPlayer: gamePlayers.player1,
-    winner: null,
-    history: [],
-  }
-  const initialScore = {
-    X: 0,
-    O: 0,
-  }
-  const [score, setScore] = useState(initialScore)
-  const [gameState, setGameState] = useState(initialState)
+  const [gamePlayers, setGamePlayers] = useState(GAME_PLAYERS)
+  const [score, setScore] = useState(INITIAL_SCORE)
+  const [gameState, setGameState] = useState(getInitialState())
   const [gameStatus, setGameStatus] = useState('waiting') // pending, waiting - игра не началась, win, draw
 
   const handleMove = (columnIndex) => {
@@ -87,13 +64,13 @@ const useGame = () => {
   }
 
   const handleRestart = () => {
-    setGameState(initialState)
+    setGameState(getInitialState())
     setGameStatus('pending')
-    setScore(initialScore)
+    setScore(INITIAL_SCORE)
   }
 
   const handlePlay = () => {
-    setGameState(initialState)
+    setGameState(getInitialState())
     setGameStatus('pending')
   }
 
