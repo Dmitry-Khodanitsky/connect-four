@@ -59,9 +59,9 @@
 }
 
 .button:active {
-  transform: translateY(2px); 
+  transform: translateY(2px);
 }
 
 .button:focus {
-  outline:  solid var(--color-board);
+  outline: solid var(--color-board);
 }
