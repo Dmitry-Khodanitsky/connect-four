@@ -34,5 +34,12 @@
 }
 
 .chip-winning {
-  background-color: red;
+  animation: 0.5s linear infinite alternate chip-winning-pulse;
+}
+
+@keyframes chip-winning-pulse {
+  to {
+    transform: scale(0.8);
+    background-color: var(--color-secondary)
+  }
 }
