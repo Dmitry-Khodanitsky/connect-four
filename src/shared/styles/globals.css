@@ -15,6 +15,7 @@ body {
   background-color: var(--color-primary);
   font-family: 'Underdog', sans-serif;
   color: var(--color-text);
+  overflow: hidden;
 }
 #root {
     min-height: 100vh;
