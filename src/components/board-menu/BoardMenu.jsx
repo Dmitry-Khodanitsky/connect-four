@@ -1,6 +1,6 @@
 import './BoardMenu.css'
 import Button from '../../shared/ui/button'
-import Modal from '../rules-modal'
+import RulesModal from '../rules-modal'
 import { useModal } from '../../shared/hooks'
 
 const BoardMenu = ({ onRestart }) => {
@@ -15,7 +15,12 @@ const BoardMenu = ({ onRestart }) => {
         <Button onClick={onRestart} type="board-menu board-menu--restart">
           Рестарт
         </Button>
-        {isModalVisible && <Modal onClose={closeModal}> Rules </Modal>}
+        {isModalVisible && (
+          <RulesModal onClose={closeModal} isModalVisible={isModalVisible}>
+            {' '}
+            Rules{' '}
+          </RulesModal>
+        )}
       </div>
     </header>
   )
