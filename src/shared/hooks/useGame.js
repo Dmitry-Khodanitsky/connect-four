@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { makeMove, checkDraw, checkWin } from '../game-logic/gameLogic'
+import { makeMove, checkDraw, checkWin } from '../../game-logic/gameLogic'
 
 const useGame = () => {
   const [gamePlayers, setGamePlayers] = useState({

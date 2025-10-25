@@ -6,7 +6,7 @@ import {
   StartMenu,
   StatusPanel,
 } from '../components/game-components'
-import { useGame } from '../hooks'
+import { useGame } from '../shared/hooks'
 
 function App() {
   const {

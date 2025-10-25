@@ -1,5 +1,5 @@
 import './StartMenu.css'
-import { useModal } from '../../../hooks'
+import { useModal } from '../../../shared/hooks'
 import Button from '../../../shared/ui/button'
 import Modal from '../rules-modal'
 

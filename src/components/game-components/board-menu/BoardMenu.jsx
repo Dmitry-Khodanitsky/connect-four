@@ -1,7 +1,7 @@
 import './BoardMenu.css'
 import Button from '../../../shared/ui/button'
 import Modal from '../rules-modal'
-import { useModal } from '../../../hooks'
+import { useModal } from '../../../shared/hooks'
 
 const GameFieldHeader = ({ onRestart }) => {
   const { isModalVisible, openModal, closeModal } = useModal()
