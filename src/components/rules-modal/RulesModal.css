@@ -15,12 +15,12 @@
 .modal-body {
   font-size: 1em;
   line-height: 1.5em;
+  margin-bottom: 10%;
 }
 
 .modal-body ol {
   list-style: decimal;
   padding-left: 1em;
-  margin-bottom: 50px;
 }
 
 .modal-footer {
