@@ -12,6 +12,15 @@
   font-family: 'Tochka-Script', sans-serif;
   font-size: 3em;
   text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.start-menu h2 {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
 
