@@ -1,5 +1,5 @@
 import './StatusPanel.css'
-import Button from '../../ui/button'
+import Button from '../../../shared/ui/button'
 import Lottie from 'lottie-react'
 import animationData from '../../../assets/lootie/confetti.json'
 import getStatusContent from '../../../helpers'

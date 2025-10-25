@@ -1,6 +1,6 @@
 import './StartMenu.css'
 import { useModal } from '../../../hooks'
-import Button from '../../ui/button'
+import Button from '../../../shared/ui/button'
 import Modal from '../rules-modal'
 
 const StartMenu = ({ onPlay }) => {

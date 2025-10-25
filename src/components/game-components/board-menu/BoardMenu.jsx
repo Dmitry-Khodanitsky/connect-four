@@ -1,5 +1,5 @@
 import './BoardMenu.css'
-import Button from '../../ui/button'
+import Button from '../../../shared/ui/button'
 import Modal from '../rules-modal'
 import { useModal } from '../../../hooks'
 

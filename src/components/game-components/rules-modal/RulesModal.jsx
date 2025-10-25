@@ -1,6 +1,6 @@
 import './RulesModal.css'
-import Button from '../../ui/button'
-import GAME_RULES from '../../../constants'
+import Button from '../../../shared/ui/button'
+import GAME_RULES from '../../../shared/constants'
 
 const Modal = ({ onClose }) => {
   return (
