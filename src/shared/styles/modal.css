@@ -23,9 +23,12 @@
   border: var(--border);
   box-shadow: var(--shadow-external);
   z-index: 1;
-  
 }
-
+.modal h1,
+h2,
+h3 {
+  margin: 0;
+}
 
 @media (max-width: 425px) {
   .modal {
