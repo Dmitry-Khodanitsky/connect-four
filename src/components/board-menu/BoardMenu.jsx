@@ -1,9 +1,9 @@
 import './BoardMenu.css'
-import Button from '../../../shared/ui/button'
+import Button from '../../shared/ui/button'
 import Modal from '../rules-modal'
-import { useModal } from '../../../shared/hooks'
+import { useModal } from '../../shared/hooks'
 
-const GameFieldHeader = ({ onRestart }) => {
+const BoardMenu = ({ onRestart }) => {
   const { isModalVisible, openModal, closeModal } = useModal()
   return (
     <header className="board-menu">
@@ -21,4 +21,4 @@ const GameFieldHeader = ({ onRestart }) => {
   )
 }
 
-export default GameFieldHeader
+export default BoardMenu

@@ -1,11 +1,10 @@
 import './StatusPanel.css'
-import Button from '../../../shared/ui/button'
+import Button from '../../shared/ui/button'
 import Lottie from 'lottie-react'
-import animationData from '../../../assets/lootie/confetti.json'
+import animationData from '../../assets/lootie/confetti.json'
 import getStatusContent from './statusPanelHelper'
 
 const StatusPanel = ({ currentPlayer, gameWinner, gameStatus, onPlay }) => {
-  
   const ConfettiAnimation = () => {
     return (
       <Lottie
@@ -21,7 +20,11 @@ const StatusPanel = ({ currentPlayer, gameWinner, gameStatus, onPlay }) => {
     )
   }
 
-  const { text, className, startButton, showWinAnimation } = getStatusContent(gameStatus, currentPlayer, gameWinner)
+  const { text, className, startButton, showWinAnimation } = getStatusContent(
+    gameStatus,
+    currentPlayer,
+    gameWinner
+  )
 
   return (
     <div className={`status-panel ${className}`}>

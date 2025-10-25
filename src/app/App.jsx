@@ -1,11 +1,6 @@
 import './App.css'
-import {
-  Board,
-  BoardMenu,
-  ScoreBox,
-  StartMenu,
-  StatusPanel,
-} from '../components/game-components'
+import { Board, BoardMenu, ScoreBox, StatusPanel } from '../components'
+import { StartMenu } from '../screens'
 import { useGame } from '../shared/hooks'
 
 function App() {
@@ -31,7 +26,7 @@ function App() {
     <main className="game-field">
       <BoardMenu onRestart={handleRestart} />
       <section className="board-box">
-        <ScoreBox player={gamePlayers.player1} score={score}/>
+        <ScoreBox player={gamePlayers.player1} score={score} />
         <Board
           gameState={gameState}
           onClick={handleMove}

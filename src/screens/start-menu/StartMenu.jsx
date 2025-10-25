@@ -1,7 +1,7 @@
 import './StartMenu.css'
-import { useModal } from '../../../shared/hooks'
-import Button from '../../../shared/ui/button'
-import Modal from '../rules-modal'
+import { useModal } from '../../shared/hooks'
+import Button from '../../shared/ui/button'
+import Modal from '../../components/rules-modal'
 
 const StartMenu = ({ onPlay }) => {
   const { isModalVisible, openModal, closeModal } = useModal()
