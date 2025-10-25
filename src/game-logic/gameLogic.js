@@ -80,7 +80,7 @@ const checkWin = (lastMove, board) => {
         `Игрок ${player.id}: найдена своя ячейка в (${nextCheckedRow},${nextCheckedCol}), счет = ${connectedCount}`
       )
       connectedCount++
-      winningCells.push({ row: nextCheckedRow, col: nextCheckedCol })
+      winningCells.push({ row: prevCheckedRow, col: prevCheckedCol })
       prevCheckedRow -= directionRow
       prevCheckedCol -= directionCol
     }
