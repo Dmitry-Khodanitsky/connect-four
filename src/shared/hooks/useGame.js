@@ -37,7 +37,8 @@ const useGame = () => {
           prevState.currentPlayer === gamePlayers.player1
             ? gamePlayers.player2
             : gamePlayers.player1,
-        winner: winner,
+        winner,
+        winningCells,
         history: [
           ...prevState.history,
           {
@@ -47,15 +48,6 @@ const useGame = () => {
             },
           },
         ],
-      }
-      if (winner) {
-        setGameStatus('win')
-        setScore((prevScore) => ({
-          ...prevScore,
-          [winner.id]: prevScore[winner.id] + 1,
-        }))
-      } else if (isDraw) {
-        setGameStatus('draw')
       }
 
       return newGameState
