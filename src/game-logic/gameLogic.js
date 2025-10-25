@@ -39,6 +39,7 @@ const checkWin = (lastMove, board) => {
   const { row: lastRow, column: lastCol, player } = lastMove
   const boardHeight = board.length
   const boardWidth = board[0].length
+  const winningCells = [{ row: lastRow, col: lastCol }]
 
   const isValidCell = (row, col) =>
     row >= 0 && row < boardHeight && col >= 0 && col < boardWidth
@@ -66,6 +67,7 @@ const checkWin = (lastMove, board) => {
       console.log(
         `Игрок ${player.id}: найдена своя ячейка в (${nextCheckedRow},${nextCheckedCol}), счет = ${connectedCount}`
       )
+      winningCells.push({ row: nextCheckedRow, col: nextCheckedCol })
       nextCheckedRow += directionRow
       nextCheckedCol += directionCol
     }
@@ -78,15 +80,17 @@ const checkWin = (lastMove, board) => {
         `Игрок ${player.id}: найдена своя ячейка в (${nextCheckedRow},${nextCheckedCol}), счет = ${connectedCount}`
       )
       connectedCount++
+      winningCells.push({ row: nextCheckedRow, col: nextCheckedCol })
       prevCheckedRow -= directionRow
       prevCheckedCol -= directionCol
     }
 
     if (connectedCount === 4) {
       console.log(`🎉 ПОБЕДА! ${player.id}`)
-      return player
+      console.log(winningCells)
+      return { winner: player, winningCells }
     }
   }
-  return null
+  return { player: null, winningCells: [] }
 }
 export { findLowestEmptyRow, makeMove, checkDraw, checkWin }
