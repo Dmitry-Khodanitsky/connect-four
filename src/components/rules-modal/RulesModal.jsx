@@ -1,7 +1,7 @@
 import './RulesModal.css'
-import '../../shared/styles/modal.css'
-import Button from '../../shared/ui/button'
-import GAME_RULES from '../../shared/constants'
+import '@shared/styles/modal.css'
+import Button from '@shared/ui/button'
+import GAME_RULES from '@shared/constants'
 import Modal from 'react-modal'
 
 

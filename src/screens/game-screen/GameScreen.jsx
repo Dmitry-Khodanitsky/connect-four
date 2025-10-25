@@ -1,5 +1,5 @@
 import './GameScreen.css'
-import { Board, BoardMenu, ScoreBox, StatusPanel } from '../../components'
+import { Board, BoardMenu, ScoreBox, StatusPanel } from '@components'
 
 function GameScreen({
   gameState,

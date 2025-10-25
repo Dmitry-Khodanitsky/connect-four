@@ -1,7 +1,7 @@
 import './StartMenu.css'
-import { useModal } from '../../shared/hooks'
-import Button from '../../shared/ui/button'
-import RulesModal from '../../components/rules-modal'
+import { useModal } from '@/shared/hooks'
+import Button from '@/shared/ui/button'
+import RulesModal from '@/components/rules-modal'
 
 const StartMenu = ({ onPlay }) => {
   const { isModalVisible, openModal, closeModal } = useModal()
@@ -24,7 +24,9 @@ const StartMenu = ({ onPlay }) => {
           </Button>
         </li>
       </ul>
-      {isModalVisible && <RulesModal onClose={closeModal} isModalVisible={isModalVisible}/>}
+      {isModalVisible && (
+        <RulesModal onClose={closeModal} isModalVisible={isModalVisible} />
+      )}
     </>
   )
 }

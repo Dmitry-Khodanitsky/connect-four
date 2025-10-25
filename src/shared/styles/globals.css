@@ -1,14 +1,13 @@
 @font-face {
   font-family: 'Underdog';
-  src: url('../../assets/fonts/Underdog-Regular.woff2') format('woff2');
+  src: url('@/assets/fonts/Underdog-Regular.woff2') format('woff2');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Tochka-Script';
-  src: url('../../assets/fonts/Tochka-Script.woff2') format('woff2');
+  src: url('@/assets/fonts/Tochka-Script.woff2') format('woff2');
   font-display: swap;
-
 }
 
 body {
@@ -18,6 +17,6 @@ body {
   overflow: hidden;
 }
 #root {
-    min-height: 100vh;
-    position: relative;
+  min-height: 100vh;
+  position: relative;
 }

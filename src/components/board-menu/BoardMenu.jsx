@@ -1,7 +1,7 @@
 import './BoardMenu.css'
-import Button from '../../shared/ui/button'
+import Button from '@shared/ui/button'
 import RulesModal from '../rules-modal'
-import { useModal } from '../../shared/hooks'
+import { useModal } from '@shared/hooks'
 
 const BoardMenu = ({ onRestart }) => {
   const { isModalVisible, openModal, closeModal } = useModal()
