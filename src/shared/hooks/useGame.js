@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { makeMove, checkDraw, checkWin } from '@/game-logic/gameLogic'
 import {
   getInitialState,
@@ -11,6 +11,18 @@ const useGame = () => {
   const [score, setScore] = useState(INITIAL_SCORE)
   const [gameState, setGameState] = useState(getInitialState())
   const [gameStatus, setGameStatus] = useState('waiting') // pending, waiting - игра не началась, win, draw
+
+  useEffect(() => {
+    if (gameState.winner) {
+      setGameStatus('win')
+      setScore((prevScore) => ({
+        ...prevScore,
+        [gameState.winner.id]: prevScore[gameState.winner.id] + 1,
+      }))
+    } else if (checkDraw(gameState.board)) {
+      setGameStatus('draw')
+    }
+  }, [gameState.winner, gameState.board])
 
   const handleMove = (columnIndex) => {
     if (gameStatus !== 'pending') return
