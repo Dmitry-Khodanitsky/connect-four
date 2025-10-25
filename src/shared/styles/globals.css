@@ -19,7 +19,6 @@ body {
   font-family: 'Underdog', sans-serif;
   color: var(--color-text);
   overflow: hidden;
- 
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -28,9 +27,6 @@ body {
 #root {
   min-height: 100vh;
   position: relative;
-
   overflow-x: hidden;
   overflow-y: auto;
-
-  -webkit-overflow-scrolling: touch;
 }
