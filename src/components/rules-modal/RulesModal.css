@@ -1,30 +1,3 @@
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(4px);
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(220px, 60%, 400px);
-  padding: 2.5em 2em;
-  background-color: var(--color-board);
-  border-radius: var(--big-border-radius);
-  border: var(--border);
-  box-shadow: var(--shadow-external);
-  z-index: 1;
-}
-
 .modal h1,
 h2,
 h3 {
@@ -43,6 +16,7 @@ h3 {
   margin-bottom: 0.5em;
 }
 
+
 .modal-body {
   font-size: 1em;
   line-height: 1.5em;
@@ -51,6 +25,7 @@ h3 {
 .modal-body ol {
   list-style: decimal;
   padding-left: 1em;
+  margin-bottom: 50px;
 }
 
 .modal-footer {
