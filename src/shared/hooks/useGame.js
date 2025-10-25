@@ -36,6 +36,8 @@ const useGame = () => {
   const [gameStatus, setGameStatus] = useState('waiting') // pending, waiting - игра не началась, win, draw
 
   const handleMove = (columnIndex) => {
+    if (gameStatus !== 'pending') return
+
     setGameState((prevState) => {
       const moveResult = makeMove(prevState, gameStatus, columnIndex)
       if (!moveResult) {
@@ -70,15 +72,12 @@ const useGame = () => {
           },
         ],
       }
-
       if (winner) {
         setGameStatus('win')
-        setScore((prevScore) => {
-          return {
-            ...prevScore,
-            [winner.id]: prevScore[winner.id] + 1,
-          }
-        })
+        setScore((prevScore) => ({
+          ...prevScore,
+          [winner.id]: prevScore[winner.id] + 1,
+        }))
       } else if (isDraw) {
         setGameStatus('draw')
       }
