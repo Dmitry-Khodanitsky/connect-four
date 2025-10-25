@@ -2,7 +2,7 @@ import './StatusPanel.css'
 import Button from '../../../shared/ui/button'
 import Lottie from 'lottie-react'
 import animationData from '../../../assets/lootie/confetti.json'
-import getStatusContent from '../../../helpers'
+import getStatusContent from './statusPanelHelper'
 
 const StatusPanel = ({ currentPlayer, gameWinner, gameStatus, onPlay }) => {
   
