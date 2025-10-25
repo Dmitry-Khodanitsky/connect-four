@@ -15,14 +15,11 @@ function App() {
 
   if (gameStatus === 'waiting') {
     return (
-      <main className="game-field">
         <StartMenu onPlay={handlePlay} />
-      </main>
     )
   }
 
   return (
-    <main className="game-field">
       <GameScreen
         gameState={gameState}
         gameStatus={gameStatus}
@@ -32,7 +29,6 @@ function App() {
         handleRestart={handleRestart}
         handlePlay={handlePlay}
       />
-    </main>
   )
 }
 
