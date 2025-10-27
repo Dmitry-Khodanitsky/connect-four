@@ -49,12 +49,12 @@
 
 .chip-winning {
   animation: 0.5s linear infinite alternate chip-winning-pulse;
-  will-change: transform;
+  will-change: background-color;
 }
 
 @keyframes chip-winning-pulse {
   to {
-    transform: scale(0.8);
+    background-color: var(--color-board);
   }
 }
 
