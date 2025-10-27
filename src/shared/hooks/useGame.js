@@ -31,6 +31,8 @@ const reducer = (state, action) => {
     }
 
     case ACTION_TYPES.MAKE_MOVE: {
+      if (state.gameStatus !== 'pending') return state
+      
       const moveResult = makeMove(state.gameState, action.payload)
       if (!moveResult) {
         // Колонка заполнена, ход невозможен
