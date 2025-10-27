@@ -1,37 +1,40 @@
-import { useState, useEffect } from 'react'
+import { useReducer } from 'react'
 import { makeMove, checkDraw, checkWin } from '@/game-logic/gameLogic'
 import {
-  getInitialState,
+  getInitialGameState,
   GAME_PLAYERS,
   INITIAL_SCORE,
+  ACTION_TYPES,
 } from '../constants/gameConstants'
 
-const useGame = () => {
-  const [gamePlayers, setGamePlayers] = useState(GAME_PLAYERS)
-  const [score, setScore] = useState(INITIAL_SCORE)
-  const [gameState, setGameState] = useState(getInitialState())
-  const [gameStatus, setGameStatus] = useState('waiting') // pending, waiting - игра не началась, win, draw
+const initialState = {
+  gamePlayers: GAME_PLAYERS,
+  score: INITIAL_SCORE,
+  gameState: getInitialGameState(),
+  gameStatus: 'waiting', // waiting, pending, win, draw
+}
 
-  useEffect(() => {
-    if (gameState.winner) {
-      setGameStatus('win')
-      setScore((prevScore) => ({
-        ...prevScore,
-        [gameState.winner.id]: prevScore[gameState.winner.id] + 1,
-      }))
-    } else if (checkDraw(gameState.board)) {
-      setGameStatus('draw')
+const reducer = (state, action) => {
+  switch (action.type) {
+    case ACTION_TYPES.START_GAME: {
+      return {
+        ...state,
+        gameState: getInitialGameState(),
+        gameStatus: 'pending',
+      }
     }
-  }, [gameState.winner, gameState.board])
+    case ACTION_TYPES.RESTART_GAME: {
+      return {
+        ...initialState,
+        gameStatus: 'pending',
+      }
+    }
 
-  const handleMove = (columnIndex) => {
-    if (gameStatus !== 'pending') return
-
-    setGameState((prevState) => {
-      const moveResult = makeMove(prevState, gameStatus, columnIndex)
+    case ACTION_TYPES.MAKE_MOVE: {
+      const moveResult = makeMove(state.gameState, action.payload)
       if (!moveResult) {
         // Колонка заполнена, ход невозможен
-        return prevState
+        return state
       }
 
       const lastMove = {
@@ -41,18 +44,19 @@ const useGame = () => {
       }
 
       const { winner, winningCells } = checkWin(lastMove, moveResult.board)
+      const nextPlayer =
+        state.gameState.currentPlayer.id === state.gamePlayers.player1.id
+          ? state.gamePlayers.player2
+          : state.gamePlayers.player1
 
       const newGameState = {
-        ...prevState,
+        ...state.gameState,
         board: moveResult.board,
-        currentPlayer:
-          prevState.currentPlayer === gamePlayers.player1
-            ? gamePlayers.player2
-            : gamePlayers.player1,
+        currentPlayer: nextPlayer,
         winner,
         winningCells,
         history: [
-          ...prevState.history,
+          ...state.gameState.history,
           {
             [moveResult.player]: {
               column: moveResult.column,
@@ -62,26 +66,52 @@ const useGame = () => {
         ],
       }
 
-      return newGameState
-    })
+      let newGameStatus = state.gameStatus
+      let newScore = state.score
+
+      if (winner) {
+        newGameStatus = 'win'
+        newScore = {
+          ...state.score,
+          [winner.id]: state.score[winner.id] + 1,
+        }
+      } else if (checkDraw(moveResult.board)) {
+        newGameStatus = 'draw'
+      }
+
+      return {
+        ...state,
+        gameStatus: newGameStatus,
+        gameState: newGameState,
+        score: newScore,
+      }
+    }
+    default: {
+      return state
+    }
+  }
+}
+
+const useGame = () => {
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  const handleMove = (columnIndex) => {
+    dispatch({ type: ACTION_TYPES.MAKE_MOVE, payload: columnIndex })
   }
 
   const handleRestart = () => {
-    setGameState(getInitialState())
-    setGameStatus('pending')
-    setScore(INITIAL_SCORE)
+    dispatch({ type: ACTION_TYPES.RESTART_GAME })
   }
 
   const handlePlay = () => {
-    setGameState(getInitialState())
-    setGameStatus('pending')
+    dispatch({ type: ACTION_TYPES.START_GAME })
   }
 
   return {
-    gameState,
-    gameStatus,
-    gamePlayers,
-    score,
+    gameState: state.gameState,
+    gameStatus: state.gameStatus,
+    gamePlayers: state.gamePlayers,
+    score: state.score,
     handleMove,
     handleRestart,
     handlePlay,
