@@ -72,9 +72,3 @@
     width: 45vh;
   }
 }
-
-@media (max-width: 480px) {
-  .board-box {
-    padding: 0 0.5rem;
-  }
-}
