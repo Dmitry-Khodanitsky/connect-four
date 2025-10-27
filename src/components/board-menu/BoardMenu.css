@@ -23,12 +23,12 @@
   text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 425px) {
   .board-menu {
     font-size: 0.7em;
   }
 
   .board-menu-content {
-    padding: 0 0.5rem;
+    padding: 0 1rem;
   }
 }
