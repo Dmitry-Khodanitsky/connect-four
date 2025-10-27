@@ -4,8 +4,8 @@ const ScoreBox = ({ player, score }) => {
   const { className, name } = player
 
   return (
-    <div className={`score-box score-box--${className}`}>
-      <div className="player-avatar"></div>
+    <div className={`score-box`}>
+      <div className={`player-avatar ${className}`}></div>
       <div className="score-info">
         {name} Счет: {score[player.id]}
       </div>
