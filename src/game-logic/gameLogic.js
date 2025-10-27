@@ -7,7 +7,7 @@ const findLowestEmptyRow = (board, column) => {
   return null
 }
 
-const makeMove = (gameState, gameStatus, columnIndex) => {
+const makeMove = (gameState, columnIndex) => {
   const { board, currentPlayer } = gameState
   const emptyRow = findLowestEmptyRow(board, columnIndex)
   if (emptyRow === null) return null
