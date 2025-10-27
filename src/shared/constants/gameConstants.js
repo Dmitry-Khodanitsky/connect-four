@@ -41,7 +41,13 @@ export const INITIAL_SCORE = {
   O: 0,
 }
 
-export const getInitialState = () => ({
+export const ACTION_TYPES = {
+  MAKE_MOVE: 'MAKE_MOVE',
+  RESTART_GAME: 'RESTART_GAME',
+  START_GAME: 'START_GAME',
+}
+
+export const getInitialGameState = () => ({
   board: INITIAL_BOARD,
   currentPlayer: GAME_PLAYERS.player1,
   winner: null,
