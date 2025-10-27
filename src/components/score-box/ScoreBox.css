@@ -31,9 +31,9 @@
   width: 3em;
   height: 3em;
   border-radius: 50%;
-  background-color: var(--color-text);
   position: relative;
   top: 10px;
+  border: var(--border)
 }
 
 /* Мобильная версия */
