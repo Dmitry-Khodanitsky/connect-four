@@ -7,7 +7,7 @@ const StartMenu = ({ onPlay }) => {
   const { isModalVisible, openModal, closeModal } = useModal()
 
   return (
-    <main className='main-menu'>
+    <main className="main-menu">
       <ul className="start-menu">
         <li>
           <h1>4 в ряд </h1>
@@ -24,9 +24,8 @@ const StartMenu = ({ onPlay }) => {
           </Button>
         </li>
       </ul>
-      {isModalVisible && (
-        <RulesModal onClose={closeModal} isModalVisible={isModalVisible} />
-      )}
+
+      <RulesModal onClose={closeModal} isModalVisible={isModalVisible} />
     </main>
   )
 }

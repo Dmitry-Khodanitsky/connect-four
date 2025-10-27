@@ -15,12 +15,10 @@ const BoardMenu = ({ onRestart }) => {
         <Button onClick={onRestart} type="board-menu board-menu--restart">
           Рестарт
         </Button>
-        {isModalVisible && (
-          <RulesModal onClose={closeModal} isModalVisible={isModalVisible}>
-            {' '}
-            Rules{' '}
-          </RulesModal>
-        )}
+
+        <RulesModal onClose={closeModal} isModalVisible={isModalVisible}>
+          Rules
+        </RulesModal>
       </div>
     </header>
   )
