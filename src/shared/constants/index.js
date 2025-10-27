@@ -3,5 +3,5 @@ export {
   GAME_PLAYERS,
   INITIAL_BOARD,
   INITIAL_SCORE,
-  getInitialState
+  getInitialGameState
 } from './gameConstants'
