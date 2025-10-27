@@ -27,7 +27,6 @@ const checkDraw = (board) => {
   for (let row of board) {
     for (let column of row) {
       if (column === null) {
-        console.log('Не все ячейки заняты')
         return false
       }
     }
@@ -39,50 +38,55 @@ const checkWin = (lastMove, board) => {
   const { row: lastRow, column: lastCol, player } = lastMove
   const boardHeight = board.length
   const boardWidth = board[0].length
-  const winningCells = [{ row: lastRow, col: lastCol }]
+
+  // 6 направлений для проверки
+  const directions = [
+    [0, 1], // → горизонталь (вправо)
+    [1, 0], // ↓ вертикаль (вниз)
+    [1, 1], // ↘ диагональ (вниз-вправо)
+    [1, -1], // ↙ диагональ (вниз-влево)
+    [-1, 1], // ↗ диагональ (вверх-вправо)
+    [-1, -1], // ↖ диагональ (вверх-влево)
+  ]
 
   const isValidCell = (row, col) =>
     row >= 0 && row < boardHeight && col >= 0 && col < boardWidth
 
-  const isWinningCell = (row, col) =>
-    isValidCell(row, col) && board[row][col] === player.id
-
-  // Направления по которой будут идти проверки
-  // [вертикаль (row), [горизонталь (col)]
-  const directions = [
-    [0, 1], // → горизонталь
-    [1, 0], // ↓ вертикаль
-    [1, 1], // ↘ диагональ
-    [-1, -1], // // ↙ диагональ
-  ]
-
   for (let [directionRow, directionCol] of directions) {
-    let connectedCount = 1
-    // Проверка по горизонтали вправо
-    let nextCheckedCol = lastCol + directionCol
-    let nextCheckedRow = lastRow + directionRow
+    let connectedCount = 1 // последняя занятая ячейка игрока уже учитывается как одна из победных
+    const winningCells = [{ row: lastRow, col: lastCol }]
+    const stepsCount = 3 // количество шагов, которые нужно пройти для проверки
 
-    while (isWinningCell(nextCheckedRow, nextCheckedCol)) {
-      connectedCount++
-      console.log(
-        `Игрок ${player.id}: найдена своя ячейка в (${nextCheckedRow},${nextCheckedCol}), счет = ${connectedCount}`
-      )
-      winningCells.push({ row: nextCheckedRow, col: nextCheckedCol })
-      nextCheckedRow += directionRow
-      nextCheckedCol += directionCol
+    // Проверка в одном направлении
+    for (let i = 1; i <= stepsCount; i++) {
+      const nextRow = lastRow + directionRow * i
+      const nextCol = lastCol + directionCol * i
+
+      if (
+        isValidCell(nextRow, nextCol) &&
+        board[nextRow][nextCol] === player.id
+      ) {
+        connectedCount++
+        winningCells.push({ row: nextRow, col: nextCol })
+      } else {
+        break
+      }
     }
 
-    let prevCheckedCol = lastCol - directionCol
-    let prevCheckedRow = lastRow - directionRow
+    // Проверка в противоположном направлении
+    for (let i = 1; i <= stepsCount; i++) {
+      const prevRow = lastRow - directionRow * i
+      const prevCol = lastCol - directionCol * i
 
-    while (isWinningCell(prevCheckedRow, prevCheckedCol)) {
-      console.log(
-        `Игрок ${player.id}: найдена своя ячейка в (${nextCheckedRow},${nextCheckedCol}), счет = ${connectedCount}`
-      )
-      connectedCount++
-      winningCells.push({ row: prevCheckedRow, col: prevCheckedCol })
-      prevCheckedRow -= directionRow
-      prevCheckedCol -= directionCol
+      if (
+        isValidCell(prevRow, prevCol) &&
+        board[prevRow][prevCol] === player.id
+      ) {
+        connectedCount++
+        winningCells.push({ row: prevRow, col: prevCol })
+      } else {
+        break
+      }
     }
 
     if (connectedCount === 4) {
@@ -91,6 +95,8 @@ const checkWin = (lastMove, board) => {
       return { winner: player, winningCells }
     }
   }
-  return { player: null, winningCells: [] }
+
+  return { winner: null, winningCells: [] }
 }
+
 export { findLowestEmptyRow, makeMove, checkDraw, checkWin }
