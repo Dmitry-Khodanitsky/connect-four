@@ -12,7 +12,7 @@
   transition: background 0.2s;
   box-shadow: var(--shadow-external);
   font-size: 2em;
-  padding: 0.2em 1em;
+  padding: 1.5em 1em;
   position: relative;
   top: -0.5em;
 }
