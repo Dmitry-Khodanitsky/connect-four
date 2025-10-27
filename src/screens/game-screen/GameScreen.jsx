@@ -1,5 +1,7 @@
 import './GameScreen.css'
 import { Board, BoardMenu, ScoreBox, StatusPanel } from '@components'
+import { motion } from 'framer-motion'
+import { slideLeft } from '@shared/animations/constants'
 
 function GameScreen({
   gameState,
@@ -10,9 +12,11 @@ function GameScreen({
   handleRestart,
   handlePlay,
 }) {
-
   return (
-    <main className="game-field">
+    <motion.main
+      className="game-field"
+      {...slideLeft}
+    >
       <BoardMenu onRestart={handleRestart} />
       <section className="board-box">
         <ScoreBox player={gamePlayers.player1} score={score} />
@@ -29,7 +33,7 @@ function GameScreen({
         gameStatus={gameStatus}
         onPlay={handlePlay}
       />
-    </main>
+    </motion.main>
   )
 }
 
