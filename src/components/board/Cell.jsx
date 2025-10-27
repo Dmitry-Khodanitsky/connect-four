@@ -1,4 +1,6 @@
 import { getClassNames } from './cellHelpers'
+import { motion, AnimatePresence } from 'framer-motion'
+import { cellDrop } from '@shared/animations/constants'
 
 const Cell = ({
   cell,
@@ -17,7 +19,14 @@ const Cell = ({
   )
   return (
     <div className="cell" onClick={() => onClick(colIndex)}>
-      {cell !== null && <div className={cellClasses}></div>}
+      <AnimatePresence>
+        {cell !== null && (
+          <motion.div
+            className={cellClasses}
+            {...cellDrop}
+          ></motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
