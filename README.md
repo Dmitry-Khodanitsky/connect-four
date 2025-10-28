@@ -4,7 +4,7 @@
 
 ### Проект-игра "Четыре в ряд", реализованная на React.
 
-![Скриншот игрового поля](src/assets/screenshots/gamefeild.png){ width=50% }
+<img src="src/assets/screenshots/gamefeild.png" alt="Скриншот игрового поля" width="50%" />
 
 **JS версия без использования TypeScript**
 
