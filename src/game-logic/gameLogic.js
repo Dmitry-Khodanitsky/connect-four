@@ -90,8 +90,6 @@ const checkWin = (lastMove, board) => {
     }
 
     if (connectedCount === 4) {
-      console.log(`🎉 ПОБЕДА! ${player.id}`)
-      console.log(winningCells)
       return { winner: player, winningCells }
     }
   }
