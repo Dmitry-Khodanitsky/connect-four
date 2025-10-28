@@ -1,3 +1,10 @@
+// Функции, реализующие основную логику игры.
+// Включает функции для:
+// Поиска самой нижней пустой ячейки - findLowestEmptyRow
+// Выполнения хода - makeMove
+// Проверки на ничью - checkDraw
+// Проверки на победу - сheckWin
+
 const findLowestEmptyRow = (board, column) => {
   for (let row = board.length - 1; row >= 0; row--) {
     if (board[row][column] === null) {
