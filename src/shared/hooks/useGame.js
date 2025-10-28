@@ -44,6 +44,7 @@ const reducer = (state, action) => {
         player: moveResult.player,
       }
 
+      const newHistory = [...state.gameState.history, lastMove.column]
       const { winner, winningCells } = checkWin(lastMove, moveResult.board)
       const nextPlayer =
         state.gameState.currentPlayer.id === state.gamePlayers.player1.id
@@ -56,15 +57,7 @@ const reducer = (state, action) => {
         currentPlayer: nextPlayer,
         winner,
         winningCells,
-        history: [
-          ...state.gameState.history,
-          {
-            [moveResult.player]: {
-              column: moveResult.column,
-              row: moveResult.row,
-            },
-          },
-        ],
+        history: newHistory,
       }
 
       let newGameStatus = state.gameStatus
