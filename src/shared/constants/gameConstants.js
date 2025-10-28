@@ -17,7 +17,6 @@ export const GAME_PLAYERS = {
   player1: {
     id: 'X',
     name: 'Игрок 1',
-    avatar: '👨',
     moveText: 'Ход игрока 1',
     winText: 'Победил игрок 1',
     className: 'player-1',
@@ -25,7 +24,6 @@ export const GAME_PLAYERS = {
   player2: {
     id: 'O',
     name: 'Игрок 2',
-    avatar: '👩',
     moveText: 'Ход игрока 2',
     winText: 'Победил игрок 2',
     className: 'player-2',
