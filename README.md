@@ -1,13 +1,14 @@
 [![CI | Lint | SonarQube](https://github.com/Dmitry-Khodanitsky/connect-four/actions/workflows/CI.yml/badge.svg)](https://github.com/Dmitry-Khodanitsky/connect-four/actions/workflows/CI.yml)
 
 # Connect Four
-Проект-игра "Четыре в ряд", реализованная на React.
-![Скриншот игрового поля](src/assets/screenshots/gamefeild.png)
+
+### Проект-игра "Четыре в ряд", реализованная на React.
+
+![Скриншот игрового поля](src/assets/screenshots/gamefeild.png) {width = 50%}
 
 **JS версия без использования TypeScript**
 
 **Деплой:** [https://connect-four-delta.vercel.app/](https://connect-four-delta.vercel.app/)
-
 
 ### Как запустить
 
