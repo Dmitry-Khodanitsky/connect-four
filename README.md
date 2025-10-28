@@ -1,16 +1,37 @@
-# React + Vite
+[![CI | Lint | SonarQube](https://github.com/Dmitry-Khodanitsky/connect-four/actions/workflows/CI.yml/badge.svg)](https://github.com/Dmitry-Khodanitsky/connect-four/actions/workflows/CI.yml)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Connect Four
+Проект-игра "Четыре в ряд", реализованная на React.
+![Скриншот игрового поля](src/assets/screenshots/gamefeild.png)
 
-Currently, two official plugins are available:
+**JS версия без использования TypeScript**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Деплой:** [https://connect-four-delta.vercel.app/](https://connect-four-delta.vercel.app/)
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Как запустить
 
-## Expanding the ESLint configuration
+- Установить зависимости: `make install` # или npm install / yarn install
+- Запуск в dev-режиме: `make dev` # или npm run dev / yarn dev
+- Сборка: `make build` # или npm run build / yarn build
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### На что обратить внимание при ревью
+
+- **Чистая архитектура UI**: UI-компоненты разделены по обязанностям, с фокусом на переиспользуемости и читаемости.
+- **Выделенная игровая логика**: Игровая логика (правила, валидации) полностью вынесена из компонентов в директорию src/game-logic/. Она написана на чистом JavaScript, что облегчает тестирование.
+- **Кастомные хуки**: useGame для управления состоянием игры и useModal для модальных окон.
+- **Анимации и UX**: Реализованы с использованием Lottie (JSON-анимации) и framer-motion для плавных переходов.
+- **Сборка и проверка качества**: GitHub Workflows для CI (линт/сборка) и CD на Vercel.
+
+### Технологии
+
+- **React + Vite**
+- **CSS**
+- **Lottie-анимация (JSON)**
+- **Framer Motion**
+
+Структура ключевых директорий:
+
+- `src/components/` — UI-компоненты (доска, ячейки, меню, панели статуса/счета).
+- `src/game-logic/` — логика игры (правила, валидаторы ходов).
+- `src/shared/` — хуки, стили, константы, анимации.
