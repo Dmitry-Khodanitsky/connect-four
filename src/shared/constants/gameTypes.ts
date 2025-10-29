@@ -36,3 +36,11 @@ export interface GameState {
   winningCells: CellPosition[]
   history: number[]
 }
+export type GameStatus = 'waiting' | 'pending' | 'win' | 'draw'
+
+export interface CombinedGameState {
+  gamePlayers: GamePlayers
+  score: Score
+  gameState: GameState
+  gameStatus: GameStatus
+}
