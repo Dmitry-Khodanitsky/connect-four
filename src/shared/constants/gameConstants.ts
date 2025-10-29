@@ -1,4 +1,12 @@
-export const GAME_RULES = {
+import type {
+  GameRules,
+  GamePlayers,
+  Board,
+  Score,
+  GameState,
+} from './gameTypes'
+
+export const GAME_RULES: GameRules = {
   title: 'Правила игры',
   description: `
     4 В РЯД - игра для двух игроков, где цель 
@@ -13,7 +21,7 @@ export const GAME_RULES = {
   ],
 }
 
-export const GAME_PLAYERS = {
+export const GAME_PLAYERS: GamePlayers = {
   player1: {
     id: 'X',
     name: 'Игрок 1',
@@ -30,11 +38,11 @@ export const GAME_PLAYERS = {
   },
 }
 
-export const INITIAL_BOARD = new Array(6)
-  .fill()
+export const INITIAL_BOARD: Board = new Array(6)
+  .fill(null)
   .map(() => new Array(7).fill(null))
 
-export const INITIAL_SCORE = {
+export const INITIAL_SCORE: Score = {
   X: 0,
   O: 0,
 }
@@ -43,9 +51,9 @@ export const ACTION_TYPES = {
   MAKE_MOVE: 'MAKE_MOVE',
   RESTART_GAME: 'RESTART_GAME',
   START_GAME: 'START_GAME',
-}
+} as const
 
-export const getInitialGameState = () => ({
+export const getInitialGameState = (): GameState => ({
   board: INITIAL_BOARD,
   currentPlayer: GAME_PLAYERS.player1,
   winner: null,
