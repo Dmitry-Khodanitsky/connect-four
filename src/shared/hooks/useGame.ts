@@ -2,10 +2,16 @@ import { useReducer } from 'react'
 import { makeMove, checkDraw, checkWin } from '@/game-logic/gameLogic'
 import {
   getInitialGameState,
-  GAME_PLAYERS,
-  INITIAL_SCORE,
   ACTION_TYPES,
+  initialState,
 } from '../constants/gameConstants'
+import type {
+  CombinedGameState,
+  GameState,
+  GameStatus,
+  Score,
+} from '@shared/constants/gameTypes'
+import type { UseGameReturn, Action } from './useGame.types'
 import validator from '@/game-logic/validator'
 
 /**
@@ -14,14 +20,10 @@ import validator from '@/game-logic/validator'
  * Использует useReducer для обработки игровых действий и обновления состояния.
  */
 
-const initialState = {
-  gamePlayers: GAME_PLAYERS, // содержит информацию об игроках: ID, className, name, moveText, winText,
-  score: INITIAL_SCORE, // содержит начальный счет игры: {Х: 0, O: 0}
-  gameState: getInitialGameState(), // возвращает  board: INITIAL_BOARD, currentPlayer: GAME_PLAYERS.player1, winner: null, winningCells: [], history: [],
-  gameStatus: 'waiting', // waiting, pending, win, draw
-}
-
-const reducer = (state, action) => {
+const reducer = (
+  state: CombinedGameState,
+  action: Action
+): CombinedGameState => {
   switch (action.type) {
     case ACTION_TYPES.START_GAME: {
       return {
@@ -64,7 +66,7 @@ const reducer = (state, action) => {
           ? state.gamePlayers.player2
           : state.gamePlayers.player1
 
-      const newGameState = {
+      const newGameState: GameState = {
         ...state.gameState,
         board: moveResult.board,
         currentPlayer: nextPlayer,
@@ -73,14 +75,14 @@ const reducer = (state, action) => {
         history: newHistory,
       }
 
-      let newGameStatus = state.gameStatus
-      let newScore = state.score
+      let newGameStatus: GameStatus = state.gameStatus
+      let newScore: Score = state.score
 
       if (winner) {
         newGameStatus = 'win'
         newScore = {
           ...state.score,
-          [winner.id]: state.score[winner.id] + 1,
+          [winner.id]: state.score[winner.id as keyof Score] + 1,
         }
       } else if (checkDraw(moveResult.board)) {
         newGameStatus = 'draw'
@@ -99,10 +101,10 @@ const reducer = (state, action) => {
   }
 }
 
-const useGame = () => {
+const useGame = (): UseGameReturn => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const handleMove = (columnIndex) => {
+  const handleMove = (columnIndex: number) => {
     dispatch({ type: ACTION_TYPES.MAKE_MOVE, payload: columnIndex })
   }
 
