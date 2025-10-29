@@ -4,8 +4,8 @@ import type {
   Board,
   Score,
   GameState,
-  CombinedGameState
-} from './gameTypes'
+  CombinedGameState,
+} from './gameConstants.types'
 
 export const GAME_RULES: GameRules = {
   title: 'Правила игры',

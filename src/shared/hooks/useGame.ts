@@ -10,7 +10,7 @@ import type {
   GameState,
   GameStatus,
   Score,
-} from '@shared/constants/gameTypes'
+} from '@/shared/constants/gameConstants.types'
 import type { UseGameReturn, Action } from './useGame.types'
 import validator from '@/game-logic/validator'
 

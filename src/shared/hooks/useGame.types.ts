@@ -1,5 +1,5 @@
 import { ACTION_TYPES } from '../constants/gameConstants'
-import type { CombinedGameState } from '../constants/gameTypes'
+import type { CombinedGameState } from '../constants/gameConstants.types'
 
 export interface UseGameReturn extends CombinedGameState {
   handleMove: (columnIndex: number) => void
