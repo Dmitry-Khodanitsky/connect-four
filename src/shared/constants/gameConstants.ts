@@ -4,6 +4,7 @@ import type {
   Board,
   Score,
   GameState,
+  CombinedGameState
 } from './gameTypes'
 
 export const GAME_RULES: GameRules = {
@@ -60,3 +61,10 @@ export const getInitialGameState = (): GameState => ({
   winningCells: [],
   history: [],
 })
+
+export const initialState: CombinedGameState = {
+  gamePlayers: GAME_PLAYERS, // содержит информацию об игроках: ID, className, name, moveText, winText,
+  score: INITIAL_SCORE, // содержит начальный счет игры: {Х: 0, O: 0}
+  gameState: getInitialGameState(), // возвращает  board: INITIAL_BOARD, currentPlayer: GAME_PLAYERS.player1, winner: null, winningCells: [], history: [],
+  gameStatus: 'waiting', // waiting, pending, win, draw
+}
