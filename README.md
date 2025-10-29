@@ -6,8 +6,6 @@
 
 <img src="src/assets/screenshots/gamefeild.png" alt="Скриншот игрового поля" width="50%" />
 
-**JS версия без использования TypeScript**
-
 **Деплой:** [https://connect-four-delta.vercel.app/](https://connect-four-delta.vercel.app/)
 
 ### Как запустить
