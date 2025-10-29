@@ -1,4 +1,4 @@
-@import 'normalize.css';
+@import '@csstools/normalize.css';
 @import './variables.css';
 @import './globals.css';
 @import './players.css';
