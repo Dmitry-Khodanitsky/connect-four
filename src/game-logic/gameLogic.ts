@@ -1,3 +1,5 @@
+import type { Board, GameState } from '@/shared/constants/gameConstants.types'
+import type { LastMove, MoveResult, CheckWinResult } from './gameLogic.types'
 // Функции, реализующие основную логику игры.
 // Включает функции для:
 // Поиска самой нижней пустой ячейки - findLowestEmptyRow
@@ -5,7 +7,7 @@
 // Проверки на ничью - checkDraw
 // Проверки на победу - сheckWin
 
-const findLowestEmptyRow = (board, column) => {
+const findLowestEmptyRow = (board: Board, column: number): number | null => {
   for (let row = board.length - 1; row >= 0; row--) {
     if (board[row][column] === null) {
       return row
@@ -14,7 +16,10 @@ const findLowestEmptyRow = (board, column) => {
   return null
 }
 
-const makeMove = (gameState, columnIndex) => {
+const makeMove = (
+  gameState: GameState,
+  columnIndex: number
+): MoveResult | null => {
   const { board, currentPlayer } = gameState
   const emptyRow = findLowestEmptyRow(board, columnIndex)
   if (emptyRow === null) return null
@@ -30,7 +35,7 @@ const makeMove = (gameState, columnIndex) => {
   }
 }
 
-const checkDraw = (board) => {
+const checkDraw = (board: Board): boolean => {
   for (let row of board) {
     for (let column of row) {
       if (column === null) {
@@ -41,7 +46,10 @@ const checkDraw = (board) => {
   return true
 }
 
-const checkWin = (lastMove, board) => {
+// Sonar Qube предупреждает, что когнитивная сложность функции выше рекомендованной,
+// но текущая структура (два отдельных цикла для каждого направления) сознательно выбрана как более читаемая, чем если выносить циклы в отдельную функцию
+// eslint-disable-next-line sonarjs/cognitive-complexity
+const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
   const { row: lastRow, column: lastCol, player } = lastMove
   const boardHeight = board.length
   const boardWidth = board[0].length
@@ -56,7 +64,7 @@ const checkWin = (lastMove, board) => {
     [-1, -1], // ↖ диагональ (вверх-влево)
   ]
 
-  const isValidCell = (row, col) =>
+  const isValidCell = (row: number, col: number): boolean =>
     row >= 0 && row < boardHeight && col >= 0 && col < boardWidth
 
   for (let [directionRow, directionCol] of directions) {
