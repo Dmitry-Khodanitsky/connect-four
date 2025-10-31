@@ -104,15 +104,15 @@ const reducer = (
 const useGame = (): UseGameReturn => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const handleMove = (columnIndex: number) => {
+  const handleMove = (columnIndex: number): void => {
     dispatch({ type: ACTION_TYPES.MAKE_MOVE, payload: columnIndex })
   }
 
-  const handleRestart = () => {
+  const handleRestart = (): void => {
     dispatch({ type: ACTION_TYPES.RESTART_GAME })
   }
 
-  const handlePlay = () => {
+  const handlePlay = (): void => {
     dispatch({ type: ACTION_TYPES.START_GAME })
   }
 
