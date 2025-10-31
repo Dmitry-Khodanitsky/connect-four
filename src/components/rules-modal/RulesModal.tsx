@@ -3,6 +3,7 @@ import '@shared/styles/modal.css'
 import Button from '@shared/ui/button'
 import { GAME_RULES } from '@shared/constants'
 import Modal from 'react-modal'
+import CheckIcon from '@/shared/ui/check-icon'
 
 interface RulesModalProps {
   onClose: () => void
@@ -38,7 +39,9 @@ const RulesModal = ({ onClose, isModalVisible }: RulesModalProps) => {
           type={'close-modal'}
           aria-label="Закрыть модальное окно"
           onClick={onClose}
-        />
+        >
+          < CheckIcon />
+        </Button>
       </div>
     </Modal>
   )
