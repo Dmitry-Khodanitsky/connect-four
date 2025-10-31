@@ -10,7 +10,7 @@ export default defineConfig({
       '@shared': '/src/shared',
       '@components': '/src/components',
       '@screens': '/src/screens',
-      '@game-logic': '/scr/game-logic'
+      '@game-logic': '/src/game-logic'
     },
   },
 })
