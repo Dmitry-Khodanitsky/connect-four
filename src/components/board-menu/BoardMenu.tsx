@@ -3,7 +3,11 @@ import Button from '@shared/ui/button'
 import RulesModal from '../rules-modal'
 import { useModal } from '@shared/hooks'
 
-const BoardMenu = ({ onRestart }) => {
+interface BoardMenuProps {
+  onRestart: () => void
+}
+
+const BoardMenu = ({ onRestart }: BoardMenuProps) => {
   const { isModalVisible, openModal, closeModal } = useModal()
   return (
     <header className="board-menu">
