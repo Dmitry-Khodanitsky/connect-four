@@ -35,6 +35,7 @@
   box-shadow: var(--shadow-inner);
   cursor: pointer;
   overflow: hidden;
+  padding: 0; 
 }
 
 .chip {
