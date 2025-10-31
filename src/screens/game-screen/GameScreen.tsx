@@ -2,8 +2,24 @@ import './GameScreen.css'
 import { Board, BoardMenu, ScoreBox, StatusPanel } from '@components'
 import { motion } from 'framer-motion'
 import { slideLeft } from '@shared/animations/constants'
+import type {
+  GameState,
+  GameStatus,
+  GamePlayers,
+  Score,
+} from '@/shared/constants/gameConstants.types'
 
-function GameScreen({
+interface GameScreenProps {
+  gameState: GameState
+  gameStatus: GameStatus
+  gamePlayers: GamePlayers
+  score: Score
+  handleMove: (columnIndex: number) => void
+  handleRestart: () => void
+  handlePlay: () => void
+}
+
+const GameScreen = ({
   gameState,
   gameStatus,
   gamePlayers,
@@ -11,12 +27,9 @@ function GameScreen({
   handleMove,
   handleRestart,
   handlePlay,
-}) {
+}: GameScreenProps) => {
   return (
-    <motion.main
-      className="game-field"
-      {...slideLeft}
-    >
+    <motion.main className="game-field" {...slideLeft}>
       <BoardMenu onRestart={handleRestart} />
       <section className="board-box">
         <ScoreBox player={gamePlayers.player1} score={score} />
