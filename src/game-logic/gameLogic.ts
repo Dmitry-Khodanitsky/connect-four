@@ -36,8 +36,8 @@ const makeMove = (
 }
 
 const checkDraw = (board: Board): boolean => {
-  for (let row of board) {
-    for (let column of row) {
+  for (const row of board) {
+    for (const column of row) {
       if (column === null) {
         return false
       }
@@ -67,7 +67,7 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
   const isValidCell = (row: number, col: number): boolean =>
     row >= 0 && row < boardHeight && col >= 0 && col < boardWidth
 
-  for (let [directionRow, directionCol] of directions) {
+  for (const [directionRow, directionCol] of directions) {
     let connectedCount = 1 // последняя занятая ячейка игрока уже учитывается как одна из победных
     const winningCells = [{ row: lastRow, col: lastCol }]
     const stepsCount = 3 // количество шагов, которые нужно пройти для проверки
