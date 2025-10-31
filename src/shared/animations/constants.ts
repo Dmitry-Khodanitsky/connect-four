@@ -1,4 +1,13 @@
-export const cellDrop = {
+import type { Transition } from 'framer-motion'
+
+interface AnimationType {
+  initial: { y?: number; x?: number; opacity?: number }
+  animate: { y?: number; x?: number; opacity?: number }
+  exit?: { y?: number; x?: number; opacity?: number }
+  transition: Transition
+}
+
+export const cellDrop: AnimationType = {
   initial: { y: -100 },
   animate: { y: 0 },
   exit: { y: 100 },
@@ -9,7 +18,7 @@ export const cellDrop = {
   },
 }
 
-export const slideDown = {
+export const slideDown: AnimationType = {
   initial: { y: -1000, opacity: 0 },
   animate: { y: 0, opacity: 100 },
   transition: {
@@ -20,7 +29,7 @@ export const slideDown = {
   },
 }
 
-export const slideLeft = {
+export const slideLeft: AnimationType = {
   initial: { x: -1000, opacity: 0 },
   animate: { x: 0, opacity: 100 },
   transition: {
