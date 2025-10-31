@@ -65,11 +65,11 @@ const validator = (history: number[]): ValidatorResult => {
     }
 
     // Используем утверждение типа as LastMove, потому что в функции validator нет доступа к полному объекту Player.
-    const lastMove = {
+    const lastMove: LastMove = {
       row,
       column,
       player: { id: currentPlayerId },
-    } as LastMove
+    } 
     const winResult = checkWin(lastMove, newBoard)
     const isDraw = checkDraw(newBoard)
     let boardState: GameStatus | 'invalid_move' = 'pending'
