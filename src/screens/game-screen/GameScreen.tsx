@@ -1,5 +1,5 @@
 import './GameScreen.css'
-import { Board, BoardMenu, ScoreBox, StatusPanel } from '@components'
+import { Board, BoardMenu, ScoreBox, StatusPanel } from '@/components'
 import { motion } from 'framer-motion'
 import { slideLeft } from '@shared/animations/constants'
 import type {
