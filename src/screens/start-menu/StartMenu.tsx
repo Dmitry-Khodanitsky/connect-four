@@ -3,7 +3,7 @@ import { useModal } from '@/shared/hooks'
 import Button from '@/shared/ui/button'
 import RulesModal from '@/components/rules-modal'
 
-const StartMenu = ({ onPlay }) => {
+const StartMenu = ({ onPlay }: { onPlay: () => void }) => {
   const { isModalVisible, openModal, closeModal } = useModal()
 
   return (
