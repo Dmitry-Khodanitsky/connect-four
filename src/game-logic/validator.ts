@@ -1,5 +1,12 @@
 import { INITIAL_BOARD } from '@/shared/constants/gameConstants'
 import { checkWin, checkDraw } from './gameLogic.js'
+import type { GameStatus } from '@/shared/constants/gameConstants.types.js'
+import type {
+  ValidatorResult,
+  ValidatorState,
+  StepDataInfo,
+  LastMove,
+} from './gameLogic.types.js'
 
 // Валидирует последовательность ходов игры и возвращает
 // подробный отчет о каждом шаге.
@@ -8,8 +15,8 @@ import { checkWin, checkDraw } from './gameLogic.js'
 // На четных индексах шаги первого игрока, на нечетных - второго, потому что начинает всегда первый игрок.
 // Каждое число в последовательности - это номер столбца, в который  игрок бросил фишку.
 
-const validator = (history) => {
-  const initialState = {
+const validator = (history: number[]): ValidatorResult => {
+  const initialState: ValidatorState = {
     board: INITIAL_BOARD,
     playerMoves: { player_1: [], player_2: [] },
     duplicateTracker: {}, // Отслеживает количество фишек в каждом столбце.
@@ -57,10 +64,15 @@ const validator = (history) => {
       [currentPlayerId]: [...prevPlayersMoves[currentPlayerId], [row, column]],
     }
 
-    const lastMove = { row, column, player: { id: currentPlayerId } }
+    // Используем утверждение типа as LastMove, потому что в функции validator нет доступа к полному объекту Player.
+    const lastMove = {
+      row,
+      column,
+      player: { id: currentPlayerId },
+    } as LastMove
     const winResult = checkWin(lastMove, newBoard)
     const isDraw = checkDraw(newBoard)
-    let boardState = 'pending'
+    let boardState: GameStatus | 'invalid_move' = 'pending'
     let winnerInfo = null
 
     // Формируем информацию о победителе, если он есть.
@@ -78,7 +90,7 @@ const validator = (history) => {
       boardState = 'draw'
     }
 
-    const stepData = {
+    const stepData: StepDataInfo = {
       player_1: newPlayerMoves.player_1,
       player_2: newPlayerMoves.player_2,
       board_state: boardState,
