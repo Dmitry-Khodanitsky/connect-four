@@ -20,9 +20,10 @@ const BoardMenu = ({ onRestart }: BoardMenuProps) => {
           Рестарт
         </Button>
 
-        <RulesModal onClose={closeModal} isModalVisible={isModalVisible}>
-          Rules
-        </RulesModal>
+        <RulesModal
+          onClose={closeModal}
+          isModalVisible={isModalVisible}
+        ></RulesModal>
       </div>
     </header>
   )
