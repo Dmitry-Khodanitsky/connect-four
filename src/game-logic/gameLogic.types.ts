@@ -3,12 +3,13 @@ import type {
   Player,
   CellPosition,
   GameStatus,
+  ValidatorPlayerId,
 } from '@/shared/constants/gameConstants.types'
 
 export interface LastMove {
   row: number
   column: number
-  player: Player
+  player: Player | ValidatorPlayerId
 }
 
 export interface MoveResult {
@@ -19,7 +20,7 @@ export interface MoveResult {
 }
 
 export interface CheckWinResult {
-  winner: Player | null
+  winner: Player | ValidatorPlayerId | null
   winningCells: CellPosition[]
 }
 
