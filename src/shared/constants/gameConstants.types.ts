@@ -7,7 +7,7 @@ export interface GameRules {
 }
 
 export interface Player {
-  id: string
+  id: 'X' | 'O'
   name: string
   moveText: string
   winText: string
