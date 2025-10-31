@@ -1,7 +1,4 @@
-import type {
-  GameStatus,
-  Player,
-} from '@/shared/constants/gameConstants.types'
+import type { GameStatus, Player } from '@/shared/constants/gameConstants.types'
 
 interface StatusContent {
   text: string
@@ -13,10 +10,13 @@ interface StatusContent {
 const getStatusContent = (
   gameStatus: GameStatus,
   currentPlayer: Player,
-  gameWinner: Player
+  gameWinner: Player | null
 ): StatusContent => {
   switch (gameStatus) {
     case 'win':
+      if (!gameWinner) {
+        throw new Error('Неверное состояние игры: win статус без winner')
+      }
       return {
         text: gameWinner.winText,
         className: gameWinner.className,
