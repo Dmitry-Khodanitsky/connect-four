@@ -1,9 +1,15 @@
 import './ScoreBox.css'
 import { motion } from 'framer-motion'
 import { slideDown } from '@shared/animations/constants'
+import type { Player, Score } from '@/shared/constants/gameConstants.types'
 
-const ScoreBox = ({ player, score }) => {
-  const { className, name } = player
+interface ScoreBoxProps {
+  player: Player
+  score: Score
+}
+
+const ScoreBox = ({ player, score }: ScoreBoxProps) => {
+  const { className, name, id } = player
 
   return (
     <motion.div
@@ -12,7 +18,7 @@ const ScoreBox = ({ player, score }) => {
     >
       <div className={`player-avatar ${className}`}></div>
       <div className="score-info">
-        {name} Счет: {score[player.id]}
+        {name} Счет: {score[id]}
       </div>
     </motion.div>
   )
