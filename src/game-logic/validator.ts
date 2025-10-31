@@ -1,6 +1,9 @@
 import { INITIAL_BOARD } from '@/shared/constants/gameConstants'
 import { checkWin, checkDraw } from './gameLogic.js'
-import type { GameStatus } from '@/shared/constants/gameConstants.types.js'
+import type {
+  GameStatus,
+  Player,
+} from '@/shared/constants/gameConstants.types.js'
 import type {
   ValidatorResult,
   ValidatorState,
@@ -8,12 +11,23 @@ import type {
   LastMove,
 } from './gameLogic.types.js'
 
+const createPlayer = (playerName: string): Player => {
+  return {
+    id: playerName === 'player_1' ? 'X' : 'O',
+    name: playerName,
+    moveText: '',
+    winText: '',
+    className: '',
+  }
+}
 // Валидирует последовательность ходов игры и возвращает
 // подробный отчет о каждом шаге.
 // Входные данные в виде массива чисел - последовательности шагов.
 // Если ходов еще не было - приходит пустой массив.
 // На четных индексах шаги первого игрока, на нечетных - второго, потому что начинает всегда первый игрок.
 // Каждое число в последовательности - это номер столбца, в который  игрок бросил фишку.
+// Для проверки победителя используется функция checkWin которая возвращает принимает в себя объект player и возвращает тоже объект player
+// Поэтому для того, чтобы validator вызвал эту функцию и передал в нее player нам нужно собрать этот объект с помощью вспомогательной функции createPlayer
 
 const validator = (history: number[]): ValidatorResult => {
   const initialState: ValidatorState = {
@@ -33,7 +47,8 @@ const validator = (history: number[]): ValidatorResult => {
     const prevBoard = acc.board
     const prevPlayersMoves = acc.playerMoves
 
-    const currentPlayerId = index % 2 === 0 ? 'player_1' : 'player_2'
+    const currentPlayerName = index % 2 === 0 ? 'player_1' : 'player_2'
+    const playerObject = createPlayer(currentPlayerName)
     const step = index + 1
 
     // Валидация хода: проверяем, что столбец находится в пределах доски
@@ -54,22 +69,25 @@ const validator = (history: number[]): ValidatorResult => {
 
     // Делаем глубокую копию доски и обновляем ее состояние, присваивая ячейке playerId тем самым заполняя ячейку
     const newBoard = prevBoard.map((row) => [...row])
-    newBoard[row][column] = currentPlayerId
+    newBoard[row][column] = playerObject.id
 
     // Увеличиваем количество фишек в данном столбце, так как ячейка заполнилась playerId
     acc.duplicateTracker[column] = (acc.duplicateTracker[column] || 0) + 1
 
     const newPlayerMoves = {
       ...prevPlayersMoves,
-      [currentPlayerId]: [...prevPlayersMoves[currentPlayerId], [row, column]],
+      [currentPlayerName]: [
+        ...prevPlayersMoves[currentPlayerName],
+        [row, column],
+      ],
     }
 
     // Используем утверждение типа as LastMove, потому что в функции validator нет доступа к полному объекту Player.
     const lastMove: LastMove = {
       row,
       column,
-      player: { id: currentPlayerId },
-    } 
+      player: playerObject,
+    }
     const winResult = checkWin(lastMove, newBoard)
     const isDraw = checkDraw(newBoard)
     let boardState: GameStatus | 'invalid_move' = 'pending'
@@ -81,7 +99,7 @@ const validator = (history: number[]): ValidatorResult => {
     if (winResult.winner) {
       boardState = 'win'
       winnerInfo = {
-        who: winResult.winner.id,
+        who: winResult.winner.name,
         positions: winResult.winningCells
           .map((cell) => [cell.row, cell.col])
           .reverse(),
