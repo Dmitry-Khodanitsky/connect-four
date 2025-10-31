@@ -1,25 +1,23 @@
 import './StatusPanel.css'
 import Button from '@/shared/ui/button'
-import Lottie from 'lottie-react'
-import animationData from '@/assets/lootie/confetti.json'
 import getStatusContent from './statusPanelHelper'
+import ConfettiAnimation from './ConfettiAnimation'
+import type { GameStatus, Player } from '@/shared/constants/gameConstants.types'
 
-const StatusPanel = ({ currentPlayer, gameWinner, gameStatus, onPlay }) => {
-  const ConfettiAnimation = () => {
-    return (
-      <Lottie
-        animationData={animationData}
-        loop={true}
-        autoplay={true}
-        style={{
-          height: '70vh',
-          width: '100vw',
-          position: 'absolute',
-        }}
-      />
-    )
-  }
+interface StatusPanelProps {
+  currentPlayer: Player
+  gameWinner: Player
+  gameStatus: GameStatus
+  onPlay: () => void
+}
 
+
+const StatusPanel = ({
+  currentPlayer,
+  gameWinner,
+  gameStatus,
+  onPlay,
+}: StatusPanelProps) => {
   const { text, className, startButton, showWinAnimation } = getStatusContent(
     gameStatus,
     currentPlayer,
