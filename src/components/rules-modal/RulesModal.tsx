@@ -28,7 +28,7 @@ const RulesModal = ({ onClose, isModalVisible }: RulesModalProps) => {
         <p>{GAME_RULES.description}</p>
         <h3>Как играть?</h3>
         <ol>
-          {GAME_RULES.rules.map((rule, index) => {
+          {GAME_RULES.rules.map((rule) => {
             return <li key={rule}>{rule}</li>
           })}
         </ol>
