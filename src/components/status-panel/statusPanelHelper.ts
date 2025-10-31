@@ -1,4 +1,20 @@
-const getStatusContent = (gameStatus, currentPlayer, gameWinner) => {
+import type {
+  GameStatus,
+  Player,
+} from '@/shared/constants/gameConstants.types'
+
+interface StatusContent {
+  text: string
+  className: string
+  startButton: boolean
+  showWinAnimation: boolean
+}
+
+const getStatusContent = (
+  gameStatus: GameStatus,
+  currentPlayer: Player,
+  gameWinner: Player
+): StatusContent => {
   switch (gameStatus) {
     case 'win':
       return {
