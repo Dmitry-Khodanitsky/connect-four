@@ -4,7 +4,12 @@ import Button from '@shared/ui/button'
 import { GAME_RULES } from '@shared/constants'
 import Modal from 'react-modal'
 
-const RulesModal = ({ onClose, isModalVisible }) => {
+interface RulesModalProps {
+  onClose: () => void
+  isModalVisible: boolean
+}
+
+const RulesModal = ({ onClose, isModalVisible }: RulesModalProps) => {
   return (
     <Modal
       isOpen={isModalVisible}
@@ -24,7 +29,7 @@ const RulesModal = ({ onClose, isModalVisible }) => {
         <h3>Как играть?</h3>
         <ol>
           {GAME_RULES.rules.map((rule, index) => {
-            return <li key={index}>{rule}</li>
+            return <li key={rule}>{rule}</li>
           })}
         </ol>
       </div>
