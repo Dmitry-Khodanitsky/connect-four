@@ -6,7 +6,7 @@ import type { GameStatus, Player } from '@/shared/constants/gameConstants.types'
 
 interface StatusPanelProps {
   currentPlayer: Player
-  gameWinner: Player
+  gameWinner: Player | null
   gameStatus: GameStatus
   onPlay: () => void
 }
