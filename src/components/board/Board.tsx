@@ -1,7 +1,18 @@
 import './Board.css'
 import Cell from './Cell'
+import type {
+  GameState,
+  GamePlayers,
+} from '@/shared/constants/gameConstants.types'
 
-const Board = ({ gameState, players, onClick }) => {
+
+interface BoardProps {
+  gameState: GameState
+  players: GamePlayers
+  onClick: (colIndex: number) => void
+}
+
+const Board = ({ gameState, players, onClick }: BoardProps) => {
   const playersClasses = {
     player1: players.player1.className,
     player2: players.player2.className,
