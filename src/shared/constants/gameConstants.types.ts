@@ -29,10 +29,15 @@ export interface CellPosition {
   col: number
 }
 
+export interface ValidatorPlayerId { // Этот тип необходим для работы функции Validator
+  id: 'player_1' | 'player_2'
+}
+type GameWinner = Player & ValidatorPlayerId
+
 export interface GameState {
   board: Board
   currentPlayer: Player
-  winner: Player | null
+  winner: GameWinner | null
   winningCells: CellPosition[]
   history: number[]
 }
