@@ -30,21 +30,3 @@ jobs:
 
       - name: Run linter
         run: make lint
-
-    
-    #   - name: SonarQube Scan
-    #     uses: SonarSource/sonarqube-scan-action@v5
-    #     env:
-    #       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    #       SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-    #     with:
-    #       args: >
-    #         -Dsonar.projectKey=Dmitry-Khodanitsky_connect-four
-    #         -Dsonar.organization=dmitry-khodanitsky
-    #         -Dsonar.coverage.exclusions=**/*
-    #         -Dsonar.tests=
-    #         -Dsonar.test.inclusions=
-    #         -Dsonar.test.exclusions=
-    #         -Dsonar.javascript.lcov.reportPaths=
-    #         -Dsonar.testExecutionReportPaths=
-          
