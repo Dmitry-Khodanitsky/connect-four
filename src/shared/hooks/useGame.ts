@@ -53,18 +53,20 @@ const reducer = (
       const lastMove = {
         row: moveResult.row,
         column: moveResult.column,
-        player: moveResult.player,
+        playerId: moveResult.playerId,
       }
 
       const newHistory = [...state.gameState.history, lastMove.column]
       // Вызов validator служит только для демонстрации работы функции validator
       console.log(validator(newHistory))
 
-      const { winner, winningCells } = checkWin(lastMove, moveResult.board)
+      const { winnerId, winningCells } = checkWin(lastMove, moveResult.board)
+      const winner = winnerId ? state.gamePlayers[winnerId] : null
+     
       const nextPlayer =
-        state.gameState.currentPlayer.id === state.gamePlayers.player1.id
-          ? state.gamePlayers.player2
-          : state.gamePlayers.player1
+        state.gameState.currentPlayer.id === state.gamePlayers.player_1.id
+          ? state.gamePlayers.player_2
+          : state.gamePlayers.player_1
 
       const newGameState: GameState = {
         ...state.gameState,
@@ -82,7 +84,7 @@ const reducer = (
         newGameStatus = 'win'
         newScore = {
           ...state.score,
-          [winner.id]: state.score[winner.id as keyof Score] + 1,
+          [winner.id]: state.score[winner.id] + 1,
         }
       } else if (checkDraw(moveResult.board)) {
         newGameStatus = 'draw'
