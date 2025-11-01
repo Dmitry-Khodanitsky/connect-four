@@ -14,8 +14,8 @@ interface BoardProps {
 
 const Board = ({ gameState, players, onClick }: BoardProps) => {
   const playersClasses = {
-    player1: players.player1.className,
-    player2: players.player2.className,
+    player1: players.player_1.id,
+    player2: players.player_2.id,
   }
 
   return (

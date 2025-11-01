@@ -32,13 +32,13 @@ const GameScreen = ({
     <motion.main className="game-field" {...slideLeft}>
       <BoardMenu onRestart={handleRestart} />
       <section className="board-box">
-        <ScoreBox player={gamePlayers.player1} score={score} />
+        <ScoreBox player={gamePlayers.player_1} score={score} />
         <Board
           gameState={gameState}
           onClick={handleMove}
           players={gamePlayers}
         />
-        <ScoreBox player={gamePlayers.player2} score={score} />
+        <ScoreBox player={gamePlayers.player_2} score={score} />
       </section>
       <StatusPanel
         currentPlayer={gameState.currentPlayer}
