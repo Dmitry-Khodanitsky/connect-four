@@ -1,6 +1,5 @@
 import type {
   Board,
-  Player,
   CellPosition,
   GameStatus,
 } from '@/shared/constants/gameConstants.types'
@@ -8,24 +7,24 @@ import type {
 export interface LastMove {
   row: number
   column: number
-  player: Player
+  playerId: 'player_1' | 'player_2'
 }
 
 export interface MoveResult {
   board: Board
   row: number
   column: number
-  player: Player
+  playerId: 'player_1' | 'player_2'
 }
 
 export interface CheckWinResult {
-  winner: Player | null
+  winnerId: 'player_1' | 'player_2' | null
   winningCells: CellPosition[]
 }
 
 // Типы для функции validation:
 export interface WinnerInfo {
-  who: string // 'player_1' или 'player_2'
+  who: 'player_1' | 'player_2'
   positions: number[][] // Массив координат выигрышных фишек [row, col]
 }
 
