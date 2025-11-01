@@ -19,7 +19,7 @@ const getStatusContent = (
       }
       return {
         text: gameWinner.winText,
-        className: gameWinner.className,
+        className: gameWinner.id,
         startButton: true,
         showWinAnimation: true,
       }
@@ -34,7 +34,7 @@ const getStatusContent = (
     default:
       return {
         text: currentPlayer.moveText,
-        className: currentPlayer.className,
+        className: currentPlayer.id,
         startButton: false,
         showWinAnimation: false,
       }
