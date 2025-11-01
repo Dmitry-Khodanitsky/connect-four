@@ -1,5 +1,5 @@
 # Name of workflow
-name: CI | Lint | SonarQube
+name: CI
 
 # Trigger the workflow on push or pull request
 on:
