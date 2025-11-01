@@ -5,12 +5,12 @@
   justify-content: center;
 }
 
-.score-box--player-1 {
+.score-box--player_1 {
   justify-self: end;
   grid-area: score1;
 }
 
-.score-box--player-2 {
+.score-box--player_2 {
   justify-self: start;
   grid-area: score2;
 }
