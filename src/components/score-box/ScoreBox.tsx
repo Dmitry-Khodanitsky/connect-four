@@ -9,14 +9,14 @@ interface ScoreBoxProps {
 }
 
 const ScoreBox = ({ player, score }: ScoreBoxProps) => {
-  const { className, name, id } = player
+  const { name, id } = player
 
   return (
     <motion.div
       className={`score-box`}
       {...slideDown}
     >
-      <div className={`player-avatar ${className}`}></div>
+      <div className={`player-avatar ${id}`}></div>
       <div className="score-info">
         {name} Счет: {score[id]}
       </div>
