@@ -31,7 +31,7 @@ const makeMove = (
     board: newBoard,
     row: emptyRow,
     column: columnIndex,
-    player: currentPlayer,
+    playerId: currentPlayer.id,
   }
 }
 
@@ -48,9 +48,9 @@ const checkDraw = (board: Board): boolean => {
 
 // Sonar Qube предупреждает, что когнитивная сложность функции выше рекомендованной,
 // но текущая структура (два отдельных цикла для каждого направления) сознательно выбрана как более читаемая, чем если выносить циклы в отдельную функцию
-// eslint-disable-next-line sonarjs/cognitive-complexity
+
 const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
-  const { row: lastRow, column: lastCol, player } = lastMove
+  const { row: lastRow, column: lastCol, playerId } = lastMove
   const boardHeight = board.length
   const boardWidth = board[0].length
 
@@ -79,7 +79,7 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
 
       if (
         isValidCell(nextRow, nextCol) &&
-        board[nextRow][nextCol] === player.id
+        board[nextRow][nextCol] === playerId
       ) {
         connectedCount++
         winningCells.push({ row: nextRow, col: nextCol })
@@ -95,7 +95,7 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
 
       if (
         isValidCell(prevRow, prevCol) &&
-        board[prevRow][prevCol] === player.id
+        board[prevRow][prevCol] === playerId
       ) {
         connectedCount++
         winningCells.push({ row: prevRow, col: prevCol })
@@ -105,11 +105,11 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
     }
 
     if (connectedCount === 4) {
-      return { winner: player, winningCells }
+      return { winnerId: playerId, winningCells }
     }
   }
 
-  return { winner: null, winningCells: [] }
+  return { winnerId: null, winningCells: [] }
 }
 
 export { findLowestEmptyRow, makeMove, checkDraw, checkWin }
