@@ -4,7 +4,7 @@ import type { CellProps } from './Cell'
 export const isWinningCell = (
   winCellsCombination: CellPosition[],
   rowIndex: number,
-  colIndex: number,
+  colIndex: number
 ): boolean => {
   return winCellsCombination.some(
     (cell) => cell.row === rowIndex && cell.col === colIndex
@@ -20,7 +20,7 @@ export const getClassNames = (
 ): string => {
   const defaultClass = 'chip'
   const playerClass =
-    cell === 'X' ? playersClasses.player1 : playersClasses.player2
+    cell === 'player_1' ? playersClasses.player1 : playersClasses.player2
   const winningClass =
     winningCells.length === 4 && isWinningCell(winningCells, rowIndex, colIndex)
       ? 'chip-winning'
