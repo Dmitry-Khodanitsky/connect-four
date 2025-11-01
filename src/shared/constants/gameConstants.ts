@@ -23,19 +23,17 @@ export const GAME_RULES: GameRules = {
 }
 
 export const GAME_PLAYERS: GamePlayers = {
-  player1: {
-    id: 'X',
+  player_1: {
+    id: 'player_1',
     name: 'Игрок 1',
     moveText: 'Ход игрока 1',
     winText: 'Победил игрок 1',
-    className: 'player-1',
   },
-  player2: {
-    id: 'O',
+  player_2: {
+    id: 'player_2',
     name: 'Игрок 2',
     moveText: 'Ход игрока 2',
     winText: 'Победил игрок 2',
-    className: 'player-2',
   },
 }
 
@@ -44,8 +42,8 @@ export const INITIAL_BOARD: Board = new Array(6)
   .map(() => new Array(7).fill(null))
 
 export const INITIAL_SCORE: Score = {
-  X: 0,
-  O: 0,
+  player_1: 0,
+  player_2: 0,
 }
 
 export const ACTION_TYPES = {
@@ -56,7 +54,7 @@ export const ACTION_TYPES = {
 
 export const getInitialGameState = (): GameState => ({
   board: INITIAL_BOARD,
-  currentPlayer: GAME_PLAYERS.player1,
+  currentPlayer: GAME_PLAYERS.player_1,
   winner: null,
   winningCells: [],
   history: [],

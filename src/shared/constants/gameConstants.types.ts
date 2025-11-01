@@ -7,21 +7,20 @@ export interface GameRules {
 }
 
 export interface Player {
-  id: 'X' | 'O'
+  id: 'player_1' | 'player_2'
   name: string
   moveText: string
   winText: string
-  className: string
 }
 
 export interface GamePlayers {
-  player1: Player
-  player2: Player
+  player_1: Player
+  player_2: Player
 }
 
 export interface Score {
-  X: number
-  O: number
+  player_1: number
+  player_2: number
 }
 
 export interface CellPosition {
