@@ -1,4 +1,4 @@
-[![CI](https://github.com/Dmitry-Khodanitsky/connect-four/actions/workflows/CI.yml/badge.svg?event=status)](https://github.com/Dmitry-Khodanitsky/connect-four/actions/workflows/CI.yml)
+[![CI](https://github.com/Dmitry-Khodanitsky/connect-four/actions/workflows/CI.yml/badge.svg)](https://github.com/Dmitry-Khodanitsky/connect-four/actions/workflows/CI.yml)
 [![Deployment](https://img.shields.io/badge/deployment-vercel-black)](https://connect-four-delta.vercel.app/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18.2-61dafb)](https://reactjs.org/)
