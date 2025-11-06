@@ -73,7 +73,7 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
     const stepsCount = 3 // количество шагов, которые нужно пройти для проверки
 
     // Проверка в одном направлении
-    for (let i = 1; i <= stepsCount; i++) {
+    for (let i = 1; i <= stepsCount && winningCells.length < 4; i++) {
       const nextRow = lastRow + directionRow * i
       const nextCol = lastCol + directionCol * i
 
@@ -89,7 +89,7 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
     }
 
     // Проверка в противоположном направлении
-    for (let i = 1; i <= stepsCount; i++) {
+    for (let i = 1; i <= stepsCount && winningCells.length < 4; i++) {
       const prevRow = lastRow - directionRow * i
       const prevCol = lastCol - directionCol * i
 
@@ -104,7 +104,7 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
       }
     }
 
-    if (connectedCount === 4) {
+    if (connectedCount >= 4) {
       return { winnerId: playerId, winningCells }
     }
   }
