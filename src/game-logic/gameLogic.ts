@@ -69,33 +69,36 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
 
   for (const [directionRow, directionCol] of directions) {
     const winningCells = [{ row: lastRow, col: lastCol }]
-    const stepsCount = 3 // количество шагов, которые нужно пройти для проверки
 
     // Проверка в одном направлении
-    for (let i = 1; i <= stepsCount && winningCells.length < 4; i++) {
-      const nextRow = lastRow + directionRow * i
-      const nextCol = lastCol + directionCol * i
+    let step = 1
+    while (winningCells.length < 4) {
+      const nextRow = lastRow + directionRow * step
+      const nextCol = lastCol + directionCol * step
 
       if (
         isValidCell(nextRow, nextCol) &&
         board[nextRow][nextCol] === playerId
       ) {
         winningCells.push({ row: nextRow, col: nextCol })
+        step++
       } else {
         break
       }
     }
 
+    step = 1 // сбрасываем количество пройденных шагов для проверки в обратном направлении
     // Проверка в противоположном направлении
-    for (let i = 1; i <= stepsCount && winningCells.length < 4; i++) {
-      const prevRow = lastRow - directionRow * i
-      const prevCol = lastCol - directionCol * i
+    while (winningCells.length < 4) {
+      const prevRow = lastRow - directionRow * step
+      const prevCol = lastCol - directionCol * step
 
       if (
         isValidCell(prevRow, prevCol) &&
         board[prevRow][prevCol] === playerId
       ) {
         winningCells.push({ row: prevRow, col: prevCol })
+        step++
       } else {
         break
       }
