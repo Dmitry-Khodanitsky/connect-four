@@ -68,7 +68,6 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
     row >= 0 && row < boardHeight && col >= 0 && col < boardWidth
 
   for (const [directionRow, directionCol] of directions) {
-    let connectedCount = 1 // последняя занятая ячейка игрока уже учитывается как одна из победных
     const winningCells = [{ row: lastRow, col: lastCol }]
     const stepsCount = 3 // количество шагов, которые нужно пройти для проверки
 
@@ -81,7 +80,6 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
         isValidCell(nextRow, nextCol) &&
         board[nextRow][nextCol] === playerId
       ) {
-        connectedCount++
         winningCells.push({ row: nextRow, col: nextCol })
       } else {
         break
@@ -97,14 +95,13 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
         isValidCell(prevRow, prevCol) &&
         board[prevRow][prevCol] === playerId
       ) {
-        connectedCount++
         winningCells.push({ row: prevRow, col: prevCol })
       } else {
         break
       }
     }
 
-    if (connectedCount >= 4) {
+    if (winningCells.length === 4) {
       return { winnerId: playerId, winningCells }
     }
   }
