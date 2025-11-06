@@ -60,8 +60,6 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
     [1, 0], // ↓ вертикаль (вниз)
     [1, 1], // ↘ диагональ (вниз-вправо)
     [1, -1], // ↙ диагональ (вниз-влево)
-    [-1, 1], // ↗ диагональ (вверх-вправо)
-    [-1, -1], // ↖ диагональ (вверх-влево)
   ]
 
   const isValidCell = (row: number, col: number): boolean =>
