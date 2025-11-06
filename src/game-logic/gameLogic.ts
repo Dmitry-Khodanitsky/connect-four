@@ -62,6 +62,7 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
     [1, -1], // ↙ диагональ (вниз-влево)
   ]
 
+  // Функция валидация ячейки, не выходит за пределы высоты доски и ширины (длинна ряда и высота колонки)
   const isValidCell = (row: number, col: number): boolean =>
     row >= 0 && row < boardHeight && col >= 0 && col < boardWidth
 
@@ -74,6 +75,7 @@ const checkWin = (lastMove: LastMove, board: Board): CheckWinResult => {
       const nextRow = lastRow + directionRow * step
       const nextCol = lastCol + directionCol * step
 
+      // если ячейка валидна и если следующая ячейка содержит фишку игрока, а не соперника. Таким образом мы считаем фишки игрока идущие подряд
       if (
         isValidCell(nextRow, nextCol) &&
         board[nextRow][nextCol] === playerId
